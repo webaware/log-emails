@@ -2,60 +2,24 @@
 // details of email log entry
 ?>
 
-<style>
+<div class="wrap">
 
-.log-emails-log-details {
-	width: 96%;
-}
-
-.log-emails-log-details tr {
-}
-
-.log-emails-log-details th {
-	text-align: right;
-	vertical-align: top;
-	padding-bottom: 1em;
-}
-
-.log-emails-log-details td {
-	padding-bottom: 1em;
-	border: 1px dotted #ccc;
-}
-
-.log-emails-next-prev {
-	position: relative;
-	width: 96%;
-	margin-bottom: 2em;
-}
-
-.log-emails-next-prev a {
-	position: absolute;
-	text-decoration: none;
-}
-
-.log-emails-link-prev {
-	left: 40%;
-}
-
-.log-emails-link-next {
-	right: 40%;
-}
-
-</style>
+<h2><?php echo esc_html('Log Emails', 'log-emails'); ?></h2>
 
 <nav class="log-emails-next-prev">
 	<?php if ($previous): ?>
-	<a class="log-emails-link-prev" title="<?php echo esc_attr_x('previous', 'move to previous', 'log-emails'); ?>" href="<?php echo esc_url($previous); ?>"><div class="dashicons dashicons-arrow-left-alt"></div></a>
+	<a class="log-emails-link-prev" title="<?php echo esc_attr_x('previous', 'move to previous log', 'log-emails'); ?>" href="<?php echo esc_url($previous); ?>"><div class="dashicons dashicons-arrow-left-alt2"></div></a>
 	<?php endif; ?>
+	<a class="log-emails-link-list" title="<?php esc_attr_e('return to list', 'log-emails'); ?>" href="<?php echo esc_url($list); ?>"><div class="dashicons dashicons-list-view"></div></a>
 	<?php if ($next): ?>
-	<a class="log-emails-link-next" title="<?php echo esc_attr_x('next', 'move to next', 'log-emails'); ?>" href="<?php echo esc_url($next); ?>"><div class="dashicons dashicons-arrow-right-alt"></div></a>
+	<a class="log-emails-link-next" title="<?php echo esc_attr_x('next', 'move to next log', 'log-emails'); ?>" href="<?php echo esc_url($next); ?>"><div class="dashicons dashicons-arrow-right-alt2"></div></a>
 	<?php endif; ?>
 </nav>
 
 <table class='log-emails-log-details'>
 
 <tr>
-	<th><?php echo esc_html_x('Sent', 'time and date email was sent', 'log-emails'); ?></th>
+	<th><?php echo esc_html_x('Sent', 'time and date an email was sent', 'log-emails'); ?></th>
 	<td>
 		<?php echo date_i18n('Y-m-d H:i:s', strtotime($post->post_date)); ?>
 		&nbsp;&nbsp;&nbsp;(<?php echo date_i18n('Y-m-d H:i:s', strtotime($post->post_date_gmt)); ?> UTC)
@@ -93,7 +57,7 @@
 
 <?php if ($content_type = get_post_meta($post->ID, '_log_emails_log_content-type', true)): ?>
 <tr>
-	<th><?php _e('Content Type', 'log-emails'); ?></th>
+	<th><?php esc_html_e('Content Type', 'log-emails'); ?></th>
 	<td><?php echo esc_html($content_type); ?></td>
 </tr>
 <?php endif; ?>
@@ -123,3 +87,6 @@
 <?php endif; ?>
 
 </table>
+
+<br class="clear" />
+</div>

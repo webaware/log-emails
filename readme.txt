@@ -1,21 +1,27 @@
 === Log Emails ===
 Contributors: webaware
 Plugin Name: Log Emails
-Plugin URI: http://snippets.webaware.com.au/wordpress-plugins/log-emails/
-Author URI: http://www.webaware.com.au/
-Donate link:
+Plugin URI: http://shop.webaware.com.au/downloads/log-emails/
+Author URI: http://webaware.com.au/
+Donate link: http://shop.webaware.com.au/downloads/log-emails/
 Tags: email log, logging, logs, email
-Requires at least: 3.2.1
-Tested up to: 3.9.1
-Stable tag: -
+Requires at least: 3.6.1
+Tested up to: 4.0
+Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Log emails to the database, to enable email problem analysis
+Log emails to the database, to better diagnose email problems
 
 == Description ==
 
 Log emails to the WordPress database for later analysis. Access is restricted to administrators, and emails with WordPress passwords are obfuscated for security / privacy. Useful for diagnosing lost email problems.
+
+Use this plugin with [Disable Emails](http://shop.webaware.com.au/downloads/disable-emails/) to divert all WordPress emails into logs, especially handy for developers.
+
+Logs are automatically purged after a defined period, set through a settings page in the WordPress admin. Setting the period to 0 prevents logs from being purged. Deactivating the plugin purges all logs.
+
+If you'd like to help out by translating this plugin, please [sign up for an account and dig in](http://translate.webaware.com.au/projects/log-emails).
 
 == Installation ==
 
@@ -24,26 +30,37 @@ Log emails to the WordPress database for later analysis. Access is restricted to
 
 == Frequently Asked Questions ==
 
-= TODO: how do I FAQ? =
+= Standard WordPress emails are logged, but some others are not =
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+You probably have a plugin that is sending emails via some other method, like directly using the PHP `mail()` function, or directly implementing an SMTP client. Not much I can do about that...
 
-== Screenshots ==
+= Why are some HTML emails broken? =
 
-TODO: a screenshot
+Some plugins tell WordPress that their emails are HTML, using one of two accepted methods. These emails are correctly recorded as HTML and should display reasonably well in the logs. If they use CSS, they might not display exactly like they do in an email program, but should still display OK.
+
+Some plugins just dump HTML into emails without saying it's HTML, or even following basic HTML document rules. If those emails have an alternative body, implying HTML + plain text, they'll be marked as HTML and will display as such.
+
+If you find that some emails are broken, please tell me in the [support forum](http://wordpress.org/support/plugin/log-emails).
+
+= What performance impact does it have? =
+
+Logging emails writes to the database. The plugin uses a custom post type, so logging each email has the same impact as saving a new WordPress post, i.e. generally not much.
+
+The plugin stops caching plugins from purging their cache every time an email log is saved, currently implemented for WP Super Cache. If you have a caching plugin that is being affected by Log Emails, please tell me in the [support forum](http://wordpress.org/support/plugin/log-emails).
+
+== Contributions ==
+
+* [Translate into your preferred language](http://translate.webaware.com.au/projects/log-emails)
+* [Fork me on GitHub](https://github.com/webaware/log-emails)
 
 == Roadmap ==
 
 Things I'd like to add to the plugin:
 
-* next/previous navigation through email logs
 * flag read / unread with bulk actions to mark logs
 * filter read / unread logs
-* detect "smells like HTML" for HTML emails with no content type, e.g. WP e-Commerce mails
 
 == Changelog ==
 
-= 0.0.1 [2013-10-09] =
-* private release
-
-TODO: can this run later, after all wp_mail* filters have been called? e.g. wp_mail_content_type
+= 1.0.0 [2014-08-16] =
+* initial public release

@@ -1,0 +1,78 @@
+.log-emails-log-details {
+
+	width: 96%;
+
+	th {
+		text-align: right;
+		vertical-align: top;
+		padding: 3px;
+		width: 8em;
+	}
+
+	td {
+		padding: 3px;
+		border: 1px solid #ccc;
+		background-color: white;
+	}
+
+}
+
+.log-emails-next-prev {
+
+	position: relative;
+	width: 96%;
+	margin-bottom: 2em;
+
+	a {
+		position: absolute;
+		text-decoration: none;
+	}
+
+}
+
+.log-emails-link-prev {
+	left: 40%;
+}
+
+.log-emails-link-next {
+	right: 40%;
+}
+
+.log-emails-link-list {
+	left: 50%;
+	text-indent: -0.75em;
+}
+
+/* provide support for older WP with no dashicons */
+.branch-3-5,
+.branch-3-6,
+.branch-3-7 {
+
+	.log-emails-next-prev {
+
+		.dashicons {
+			display: inline-block;
+			width: 1.5em;
+			height: 1.5em;
+			font-size: 1.2em;
+			font-weight: bold;
+			line-height: 1;
+			vertical-align: top;
+			text-align: center;
+		}
+
+		.dashicons-arrow-left-alt2:before {
+			content: "<";
+		}
+
+		.dashicons-arrow-right-alt2:before {
+			content: ">";
+		}
+
+		.dashicons-list-view:before {
+			content: "=";
+		}
+
+	}
+
+}

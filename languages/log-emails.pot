@@ -1,0 +1,150 @@
+# copyright (c) 2014 WebAware Pty Ltd
+# This file is distributed under the same license as the plugin package.
+msgid ""
+msgstr ""
+"Project-Id-Version: log-emails\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-16 18:37+1000\n"
+"PO-Revision-Date: 2014-08-16 18:38+1000\n"
+"Last-Translator: Ross McKay <rmckay@webaware.com.au>\n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c;_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Textdomain-Support: yes\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../includes/class.LogEmailsPlugin.php:100
+#: ../includes/class.LogEmailsPlugin.php:106
+msgid "*** password redacted ***"
+msgstr ""
+
+#: ../includes/class.LogEmailsPlugin.php:182
+msgid "Get Help"
+msgstr ""
+
+#: ../includes/class.LogEmailsPlugin.php:183
+msgid "Rating"
+msgstr ""
+
+#: ../includes/class.LogEmailsPlugin.php:184
+msgctxt "translate from English"
+msgid "Translate"
+msgstr ""
+
+#: ../includes/class.LogEmailsPlugin.php:197
+msgctxt "maximum days to keep email logs"
+msgid "Log limit"
+msgstr ""
+
+#: ../includes/class.LogEmailsPlugin.php:201
+msgid "number of days to keep email logs"
+msgstr ""
+
+#: ../includes/class.LogEmailsPostTypeLog.php:57
+msgid "Email Logs"
+msgstr ""
+
+#: ../includes/class.LogEmailsPostTypeLog.php:58
+msgid "Email Log"
+msgstr ""
+
+#: ../includes/class.LogEmailsPostTypeLog.php:59
+msgid "Search Email Log"
+msgstr ""
+
+#: ../includes/class.LogEmailsPostTypeLog.php:60
+msgid "No email logs found"
+msgstr ""
+
+#: ../includes/class.LogEmailsPostTypeLog.php:62
+msgid "Keep temporary records of emails for review and diagnostics"
+msgstr ""
+
+#: ../includes/class.LogEmailsPostTypeLog.php:136 ../views/log-detail.php:30
+msgctxt "email subject"
+msgid "Subject"
+msgstr ""
+
+#: ../includes/class.LogEmailsPostTypeLog.php:137 ../views/log-detail.php:40
+msgctxt "email recipients (To:)"
+msgid "Recipients"
+msgstr ""
+
+#: ../includes/class.LogEmailsPostTypeLog.php:165
+msgctxt "view email log"
+msgid "View"
+msgstr ""
+
+#: ../includes/class.LogEmailsPostTypeLog.php:169
+msgctxt "delete email log"
+msgid "Delete"
+msgstr ""
+
+#: ../includes/class.LogEmailsPostTypeLog.php:285
+msgctxt "bulk delete email logs"
+msgid "Delete"
+msgstr ""
+
+#: ../views/log-detail.php:11
+msgctxt "move to previous log"
+msgid "previous"
+msgstr ""
+
+#: ../views/log-detail.php:13
+msgid "return to list"
+msgstr ""
+
+#: ../views/log-detail.php:15
+msgctxt "move to next log"
+msgid "next"
+msgstr ""
+
+#: ../views/log-detail.php:22
+msgctxt "time and date an email was sent"
+msgid "Sent"
+msgstr ""
+
+#: ../views/log-detail.php:35
+msgctxt "email sender (From:)"
+msgid "From"
+msgstr ""
+
+#: ../views/log-detail.php:46
+msgctxt "courtesy copy addresses"
+msgid "CC"
+msgstr ""
+
+#: ../views/log-detail.php:53
+msgctxt "blind courtesy copy addresses"
+msgid "BCC"
+msgstr ""
+
+#: ../views/log-detail.php:60
+msgid "Content Type"
+msgstr ""
+
+#: ../views/log-detail.php:66
+msgctxt "content of email"
+msgid "Message"
+msgstr ""
+
+#: ../views/log-detail.php:69
+msgid "view raw message"
+msgstr ""
+
+#: ../views/log-detail.php:75
+msgid "view HTML message"
+msgstr ""
+
+#: ../views/log-detail.php:84
+msgid "Alternative Content"
+msgstr ""

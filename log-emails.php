@@ -1,13 +1,13 @@
 <?php
 /*
 Plugin Name: Log Emails
-Plugin URI: http://snippets.webaware.com.au/wordpress-plugins/log-emails/
+Plugin URI: http://shop.webaware.com.au/downloads/log-emails/
 Description: Log emails to the database, to enable email problem analysis
-Version: 0.0.7-alpha7
+Version: 1.0.0
 Author: WebAware
 Author URI: http://webaware.com.au/
 Text Domain: log-emails
-Domain Path: /languages
+Domain Path: /languages/
 */
 
 /*
@@ -28,12 +28,14 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 if (!defined('LOG_EMAILS_PLUGIN_ROOT')) {
+	define('LOG_EMAILS_PLUGIN_FILE', __FILE__);
 	define('LOG_EMAILS_PLUGIN_ROOT', dirname(__FILE__) . '/');
 	define('LOG_EMAILS_PLUGIN_NAME', basename(dirname(__FILE__)) . '/' . basename(__FILE__));
+	define('LOG_EMAILS_PLUGIN_VERSION', '1.0.0');
 
 	// scheduled tasks
 	define('LOG_EMAILS_TASK_PURGE', 'log_emails_purge');
 }
 
-require LOG_EMAILS_PLUGIN_ROOT . 'class.LogEmailsPlugin.php';
-LogEmailsPlugin::run();
+require LOG_EMAILS_PLUGIN_ROOT . 'includes/class.LogEmailsPlugin.php';
+LogEmailsPlugin::getInstance();
