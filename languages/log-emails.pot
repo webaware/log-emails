@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: log-emails\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-20 11:56+1000\n"
-"PO-Revision-Date: 2014-08-20 11:56+1000\n"
+"POT-Creation-Date: 2014-08-21 08:14+1000\n"
+"PO-Revision-Date: 2014-08-21 08:14+1000\n"
 "Last-Translator: Ross McKay <rmckay@webaware.com.au>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -69,27 +69,27 @@ msgstr ""
 msgid "Keep temporary records of emails for review and diagnostics"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:137 ../views/log-detail.php:30
+#: ../includes/class.LogEmailsPostTypeLog.php:136 ../views/log-detail.php:30
 msgctxt "email subject"
 msgid "Subject"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:138 ../views/log-detail.php:40
+#: ../includes/class.LogEmailsPostTypeLog.php:137 ../views/log-detail.php:40
 msgctxt "email recipients (To:)"
 msgid "Recipients"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:166
+#: ../includes/class.LogEmailsPostTypeLog.php:165
 msgctxt "view email log"
 msgid "View"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:170
+#: ../includes/class.LogEmailsPostTypeLog.php:169
 msgctxt "delete email log"
 msgid "Delete"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:286
+#: ../includes/class.LogEmailsPostTypeLog.php:285
 msgctxt "bulk delete email logs"
 msgid "Delete"
 msgstr ""

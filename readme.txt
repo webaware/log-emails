@@ -7,7 +7,7 @@ Donate link: http://shop.webaware.com.au/downloads/log-emails/
 Tags: email log, logging, logs, email
 Requires at least: 3.6.1
 Tested up to: 4.0
-Stable tag: trunk
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,9 @@ Things I'd like to add to the plugin:
 * filter read / unread logs
 
 == Changelog ==
+
+= 1.0.2 [2014-08-21] =
+* fixed: bulk action checkboxes not appearing on stand-alone WordPress sites
 
 = 1.0.1 [2014-08-20] =
 * fixed: menu link not appearing on stand-alone WordPress sites

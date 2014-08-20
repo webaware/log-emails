@@ -74,11 +74,10 @@ class LogEmailsPostTypeLog {
 			'query_var'					=> false,
 			'can_export'				=> false,
 			'capabilities'				=> array (
-				'create_posts'			=> false,
-				'edit_post'				=> false,
-				// FIXME: want to disallow, but these lines mean no menu on stand-alone WordPress!
-				//~ 'edit_posts'			=> false,
-				//~ 'edit_others_posts'		=> false,
+				'create_posts'			=> 'do_not_allow',
+				'edit_post'				=> 'activate_plugins',
+				'edit_posts'			=> 'activate_plugins',
+				'edit_others_posts'		=> 'activate_plugins',
 				'delete_post'			=> 'activate_plugins',
 				'read_post'				=> 'activate_plugins',
 				'read_private_posts'	=> 'do_not_allow',
