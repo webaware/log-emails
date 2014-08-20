@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: log-emails\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-16 18:37+1000\n"
-"PO-Revision-Date: 2014-08-16 18:38+1000\n"
+"POT-Creation-Date: 2014-08-20 11:56+1000\n"
+"PO-Revision-Date: 2014-08-20 11:56+1000\n"
 "Last-Translator: Ross McKay <rmckay@webaware.com.au>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -22,30 +22,30 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../includes/class.LogEmailsPlugin.php:100
-#: ../includes/class.LogEmailsPlugin.php:106
+#: ../includes/class.LogEmailsPlugin.php:96
+#: ../includes/class.LogEmailsPlugin.php:102
 msgid "*** password redacted ***"
 msgstr ""
 
-#: ../includes/class.LogEmailsPlugin.php:182
+#: ../includes/class.LogEmailsPlugin.php:175
 msgid "Get Help"
 msgstr ""
 
-#: ../includes/class.LogEmailsPlugin.php:183
+#: ../includes/class.LogEmailsPlugin.php:176
 msgid "Rating"
 msgstr ""
 
-#: ../includes/class.LogEmailsPlugin.php:184
+#: ../includes/class.LogEmailsPlugin.php:177
 msgctxt "translate from English"
 msgid "Translate"
 msgstr ""
 
-#: ../includes/class.LogEmailsPlugin.php:197
+#: ../includes/class.LogEmailsPlugin.php:190
 msgctxt "maximum days to keep email logs"
 msgid "Log limit"
 msgstr ""
 
-#: ../includes/class.LogEmailsPlugin.php:201
+#: ../includes/class.LogEmailsPlugin.php:194
 msgid "number of days to keep email logs"
 msgstr ""
 
@@ -69,27 +69,27 @@ msgstr ""
 msgid "Keep temporary records of emails for review and diagnostics"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:136 ../views/log-detail.php:30
+#: ../includes/class.LogEmailsPostTypeLog.php:137 ../views/log-detail.php:30
 msgctxt "email subject"
 msgid "Subject"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:137 ../views/log-detail.php:40
+#: ../includes/class.LogEmailsPostTypeLog.php:138 ../views/log-detail.php:40
 msgctxt "email recipients (To:)"
 msgid "Recipients"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:165
+#: ../includes/class.LogEmailsPostTypeLog.php:166
 msgctxt "view email log"
 msgid "View"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:169
+#: ../includes/class.LogEmailsPostTypeLog.php:170
 msgctxt "delete email log"
 msgid "Delete"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:285
+#: ../includes/class.LogEmailsPostTypeLog.php:286
 msgctxt "bulk delete email logs"
 msgid "Delete"
 msgstr ""
