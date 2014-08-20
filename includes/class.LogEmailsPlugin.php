@@ -90,10 +90,6 @@ class LogEmailsPlugin {
 	* @param PHPMailer $phpmailer
 	*/
 	public function phpmailerInit($phpmailer) {
-
-//~ error_log("\n\nargs = \n" . print_r($this->args,1));
-//~ error_log("\n\nphpmailer = \n" . print_r($phpmailer,1));
-
 		// get message body, protect passwords
 		$message = $phpmailer->Body;
 		if (stripos($message, 'password') !== false) {
@@ -169,9 +165,6 @@ class LogEmailsPlugin {
 	public function deactivate() {
 		// remove scheduled tasks
 		wp_clear_scheduled_hook(LOG_EMAILS_TASK_PURGE);
-
-		// remove all logs
-		LogEmailsPostTypeLog::purge(0);
 	}
 
 	/**

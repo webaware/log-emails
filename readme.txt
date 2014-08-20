@@ -38,9 +38,9 @@ You probably have a plugin that is sending emails via some other method, like di
 
 Some plugins tell WordPress that their emails are HTML, using one of two accepted methods. These emails are correctly recorded as HTML and should display reasonably well in the logs. If they use CSS, they might not display exactly like they do in an email program, but should still display OK.
 
-Some plugins just dump HTML into emails without saying it's HTML, or even following basic HTML document rules. If those emails have an alternative body, implying HTML + plain text, they'll be marked as HTML and will display as such.
+Some plugins just dump HTML into emails without saying it's HTML, or even following basic HTML document rules. If those emails have an alternative body, implying HTML + plain text parts, they'll be marked as HTML and will display as such.
 
-If you find that some emails are broken, please tell me in the [support forum](http://wordpress.org/support/plugin/log-emails).
+If you find that emails from some plugins are broken, please tell me in the [support forum](http://wordpress.org/support/plugin/log-emails).
 
 = What performance impact does it have? =
 
@@ -61,6 +61,10 @@ Things I'd like to add to the plugin:
 * filter read / unread logs
 
 == Changelog ==
+
+= 1.0.1 [2014-08-20] =
+* fixed: menu link not appearing on stand-alone WordPress sites
+* added: uninstall handler to remove logs when plugin is uninstalled
 
 = 1.0.0 [2014-08-16] =
 * initial public release

@@ -76,8 +76,9 @@ class LogEmailsPostTypeLog {
 			'capabilities'				=> array (
 				'create_posts'			=> false,
 				'edit_post'				=> false,
-				'edit_posts'			=> false,
-				'edit_others_posts'		=> false,
+				// FIXME: want to disallow, but these lines mean no menu on stand-alone WordPress!
+				//~ 'edit_posts'			=> false,
+				//~ 'edit_others_posts'		=> false,
 				'delete_post'			=> 'activate_plugins',
 				'read_post'				=> 'activate_plugins',
 				'read_private_posts'	=> 'do_not_allow',
