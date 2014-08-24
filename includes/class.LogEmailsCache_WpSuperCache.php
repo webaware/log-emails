@@ -18,7 +18,7 @@ class LogEmailsCache_WpSuperCache {
 	/**
 	* temporarily stop caching plugin from reacting to post changes
 	*/
-	public function pauseCaching() {
+	public static function pauseCaching() {
 		remove_action('delete_post', 'wp_cache_post_edit', 0);
 		remove_action('clean_post_cache', 'wp_cache_post_edit');
 	}
@@ -26,7 +26,7 @@ class LogEmailsCache_WpSuperCache {
 	/**
 	* allow caching plugin to resume reacting to post changes
 	*/
-	public function resumeCaching() {
+	public static function resumeCaching() {
 		add_action('delete_post', 'wp_cache_post_edit', 0);
 		add_action('clean_post_cache', 'wp_cache_post_edit');
 	}

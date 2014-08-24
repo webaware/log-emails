@@ -62,6 +62,9 @@ Things I'd like to add to the plugin:
 
 == Changelog ==
 
+= 1.0.3 [soon...] =
+* fixed: PHP warning on static call to non-static methods in class LogEmailsCache_WpSuperCache
+
 = 1.0.2 [2014-08-21] =
 * fixed: bulk action checkboxes not appearing on stand-alone WordPress sites
 
