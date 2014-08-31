@@ -49,7 +49,7 @@ class LogEmailsPlugin {
 	* NB: must load before CPT are registered so that strings are properly translated
 	*/
 	public function loadTranslations() {
-		load_plugin_textdomain('log-emails', false, dirname(plugin_basename(LOG_EMAILS_PLUGIN_FILE)) . '/languages/');
+		load_plugin_textdomain('log-emails', false, basename(dirname(LOG_EMAILS_PLUGIN_FILE)) . '/languages/');
 	}
 
 	/**
@@ -172,9 +172,10 @@ class LogEmailsPlugin {
 	*/
 	public function addPluginDetailsLinks($links, $file) {
 		if ($file == LOG_EMAILS_PLUGIN_NAME) {
-			$links[] = sprintf('<a href="http://wordpress.org/support/plugin/log-emails" target="_blank">%s</a>', __('Get Help', 'log-emails'));
-			$links[] = sprintf('<a href="http://wordpress.org/plugins/log-emails/" target="_blank">%s</a>', __('Rating', 'log-emails'));
-			$links[] = sprintf('<a href="http://translate.webaware.com.au/projects/log-emails" target="_blank">%s</a>', _x('Translate', 'translate from English', 'log-emails'));
+			$links[] = sprintf('<a href="http://wordpress.org/support/plugin/log-emails" target="_blank">%s</a>', _x('Get Help', 'plugin details links', 'log-emails'));
+			$links[] = sprintf('<a href="http://wordpress.org/plugins/log-emails/" target="_blank">%s</a>', _x('Rating', 'plugin details links', 'log-emails'));
+			$links[] = sprintf('<a href="http://translate.webaware.com.au/projects/log-emails" target="_blank">%s</a>', _x('Translate', 'plugin details links', 'log-emails'));
+			$links[] = sprintf('<a href="http://shop.webaware.com.au/downloads/log-emails/" target="_blank">%s</a>', _x('Donate', 'plugin details links', 'log-emails'));
 		}
 
 		return $links;

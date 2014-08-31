@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: log-emails\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-21 08:14+1000\n"
-"PO-Revision-Date: 2014-08-21 08:14+1000\n"
+"POT-Creation-Date: 2014-08-31 19:10+1000\n"
+"PO-Revision-Date: 2014-08-31 19:11+1000\n"
 "Last-Translator: Ross McKay <rmckay@webaware.com.au>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -28,24 +28,31 @@ msgid "*** password redacted ***"
 msgstr ""
 
 #: ../includes/class.LogEmailsPlugin.php:175
+msgctxt "plugin details links"
 msgid "Get Help"
 msgstr ""
 
 #: ../includes/class.LogEmailsPlugin.php:176
+msgctxt "plugin details links"
 msgid "Rating"
 msgstr ""
 
 #: ../includes/class.LogEmailsPlugin.php:177
-msgctxt "translate from English"
+msgctxt "plugin details links"
 msgid "Translate"
 msgstr ""
 
-#: ../includes/class.LogEmailsPlugin.php:190
+#: ../includes/class.LogEmailsPlugin.php:178
+msgctxt "plugin details links"
+msgid "Donate"
+msgstr ""
+
+#: ../includes/class.LogEmailsPlugin.php:191
 msgctxt "maximum days to keep email logs"
 msgid "Log limit"
 msgstr ""
 
-#: ../includes/class.LogEmailsPlugin.php:194
+#: ../includes/class.LogEmailsPlugin.php:195
 msgid "number of days to keep email logs"
 msgstr ""
 
