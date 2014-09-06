@@ -7,7 +7,7 @@ Donate link: http://shop.webaware.com.au/downloads/log-emails/
 Tags: email log, logging, logs, email
 Requires at least: 3.6.1
 Tested up to: 4.0
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,8 +62,9 @@ Things I'd like to add to the plugin:
 
 == Changelog ==
 
-= 1.0.3 [soon...] =
+= 1.0.3 [2014-09-06] =
 * fixed: PHP warning on static call to non-static methods in class LogEmailsCache_WpSuperCache
+* fixed: fix WordPress 4.0 box shadow on return-to-list :focus
 
 = 1.0.2 [2014-08-21] =
 * fixed: bulk action checkboxes not appearing on stand-alone WordPress sites

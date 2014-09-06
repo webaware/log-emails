@@ -41,6 +41,12 @@
 .log-emails-link-list {
 	left: 50%;
 	text-indent: -0.75em;
+
+	/* WP 4.0 places box shadow around where character would be before text-index; clean it up */
+	&:focus {
+		box-shadow: none;
+		color: #444;
+	}
 }
 
 /* provide support for older WP with no dashicons */
