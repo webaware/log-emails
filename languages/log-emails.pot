@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: log-emails\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-31 19:10+1000\n"
-"PO-Revision-Date: 2014-08-31 19:11+1000\n"
+"POT-Creation-Date: 2014-11-03 19:55+1000\n"
+"PO-Revision-Date: 2014-11-03 19:55+1000\n"
 "Last-Translator: Ross McKay <rmckay@webaware.com.au>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -22,81 +22,82 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../includes/class.LogEmailsPlugin.php:96
-#: ../includes/class.LogEmailsPlugin.php:102
+#: ../includes/class.LogEmailsPlugin.php:99
+#: ../includes/class.LogEmailsPlugin.php:105
 msgid "*** password redacted ***"
-msgstr ""
-
-#: ../includes/class.LogEmailsPlugin.php:175
-msgctxt "plugin details links"
-msgid "Get Help"
-msgstr ""
-
-#: ../includes/class.LogEmailsPlugin.php:176
-msgctxt "plugin details links"
-msgid "Rating"
-msgstr ""
-
-#: ../includes/class.LogEmailsPlugin.php:177
-msgctxt "plugin details links"
-msgid "Translate"
 msgstr ""
 
 #: ../includes/class.LogEmailsPlugin.php:178
 msgctxt "plugin details links"
+msgid "Get Help"
+msgstr ""
+
+#: ../includes/class.LogEmailsPlugin.php:179
+msgctxt "plugin details links"
+msgid "Rating"
+msgstr ""
+
+#: ../includes/class.LogEmailsPlugin.php:180
+msgctxt "plugin details links"
+msgid "Translate"
+msgstr ""
+
+#: ../includes/class.LogEmailsPlugin.php:181
+msgctxt "plugin details links"
 msgid "Donate"
 msgstr ""
 
-#: ../includes/class.LogEmailsPlugin.php:191
+#: ../includes/class.LogEmailsPlugin.php:194
 msgctxt "maximum days to keep email logs"
 msgid "Log limit"
 msgstr ""
 
-#: ../includes/class.LogEmailsPlugin.php:195
+#: ../includes/class.LogEmailsPlugin.php:198
 msgid "number of days to keep email logs"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:57
+#: ../includes/class.LogEmailsPostTypeLog.php:58 ../views/settings-form.php:7
+#: ../views/log-detail.php:7
 msgid "Email Logs"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:58
+#: ../includes/class.LogEmailsPostTypeLog.php:59
 msgid "Email Log"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:59
+#: ../includes/class.LogEmailsPostTypeLog.php:60
 msgid "Search Email Log"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:60
+#: ../includes/class.LogEmailsPostTypeLog.php:61
 msgid "No email logs found"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:62
+#: ../includes/class.LogEmailsPostTypeLog.php:63
 msgid "Keep temporary records of emails for review and diagnostics"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:136 ../views/log-detail.php:30
+#: ../includes/class.LogEmailsPostTypeLog.php:152 ../views/log-detail.php:30
 msgctxt "email subject"
 msgid "Subject"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:137 ../views/log-detail.php:40
+#: ../includes/class.LogEmailsPostTypeLog.php:153 ../views/log-detail.php:40
 msgctxt "email recipients (To:)"
 msgid "Recipients"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:165
+#: ../includes/class.LogEmailsPostTypeLog.php:181
 msgctxt "view email log"
 msgid "View"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:169
+#: ../includes/class.LogEmailsPostTypeLog.php:185
 msgctxt "delete email log"
 msgid "Delete"
 msgstr ""
 
-#: ../includes/class.LogEmailsPostTypeLog.php:285
+#: ../includes/class.LogEmailsPostTypeLog.php:301
 msgctxt "bulk delete email logs"
 msgid "Delete"
 msgstr ""
