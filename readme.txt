@@ -7,7 +7,7 @@ Donate link: http://shop.webaware.com.au/downloads/log-emails/
 Tags: email log, logging, logs, email
 Requires at least: 3.6.1
 Tested up to: 4.0
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,6 +20,12 @@ Log emails to the WordPress database for later analysis. Access is restricted to
 Use this plugin with [Disable Emails](http://shop.webaware.com.au/downloads/disable-emails/) to divert all WordPress emails into logs, especially handy for developers.
 
 Logs are automatically purged after a defined period, set through a settings page in the WordPress admin. Setting the period to 0 prevents logs from being purged. Deactivating the plugin purges all logs.
+
+= Translations =
+
+Many thanks to the generous efforts of our translators:
+
+* Czech (cs-CZ) -- ([Rudolf Klusal](http://www.klusik.cz/))
 
 If you'd like to help out by translating this plugin, please [sign up for an account and dig in](http://translate.webaware.com.au/projects/log-emails).
 
@@ -61,6 +67,10 @@ Things I'd like to add to the plugin:
 * filter read / unread logs
 
 == Changelog ==
+
+= 1.0.4 [2014-11-03] =
+* fixed: default sort order is by ID descending, to avoid ordering errors when logs occur in the same second
+* added: Czech translation (thanks, [Rudolf Klusal](http://www.klusik.cz/)!)
 
 = 1.0.3 [2014-09-06] =
 * fixed: PHP warning on static call to non-static methods in class LogEmailsCache_WpSuperCache

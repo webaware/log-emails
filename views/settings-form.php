@@ -4,7 +4,7 @@
 
 <div class="wrap">
 	<?php screen_icon(); ?>
-	<h2>Log Emails</h2>
+	<h2><?php esc_html_e('Email Logs', 'log-emails'); ?></h2>
 
 	<form action="<?php echo admin_url('options.php'); ?>" method="POST">
 		<?php settings_fields('log-emails'); ?>

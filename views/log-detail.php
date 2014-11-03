@@ -4,7 +4,7 @@
 
 <div class="wrap">
 
-<h2><?php echo esc_html('Log Emails', 'log-emails'); ?></h2>
+<h2><?php esc_html_e('Email Logs', 'log-emails'); ?></h2>
 
 <nav class="log-emails-next-prev">
 	<?php if ($previous): ?>

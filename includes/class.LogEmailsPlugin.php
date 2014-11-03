@@ -7,6 +7,9 @@ class LogEmailsPlugin {
 
 	protected $args = false;				// arguments to wp_mail() function, recorded from filter wp_mail
 
+	// scheduled tasks
+	const TASK_PURGE = 'log_emails_purge';
+
 	/**
 	* static method for getting the instance of this singleton object
 	* @return self
@@ -31,7 +34,7 @@ class LogEmailsPlugin {
 		add_action('admin_init', array($this, 'registerSettings'));
 		add_action('admin_menu', array($this, 'adminMenu'));
 		add_filter('plugin_row_meta', array($this, 'addPluginDetailsLinks'), 10, 2);
-		add_action(LOG_EMAILS_TASK_PURGE, array($this, 'purge'));
+		add_action(self::TASK_PURGE, array($this, 'purge'));
 
 		register_deactivation_hook(LOG_EMAILS_PLUGIN_FILE, array($this, 'deactivate'));
 
@@ -57,8 +60,8 @@ class LogEmailsPlugin {
 	*/
 	public function init() {
 		// make sure we have a schedule for purging old logs
-		if (!wp_next_scheduled(LOG_EMAILS_TASK_PURGE)) {
-			wp_schedule_event(time() + 10, 'daily', LOG_EMAILS_TASK_PURGE);
+		if (!wp_next_scheduled(self::TASK_PURGE)) {
+			wp_schedule_event(time() + 10, 'daily', self::TASK_PURGE);
 		}
 	}
 
@@ -164,7 +167,7 @@ class LogEmailsPlugin {
 	*/
 	public function deactivate() {
 		// remove scheduled tasks
-		wp_clear_scheduled_hook(LOG_EMAILS_TASK_PURGE);
+		wp_clear_scheduled_hook(self::TASK_PURGE);
 	}
 
 	/**

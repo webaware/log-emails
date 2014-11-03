@@ -36,6 +36,7 @@ class LogEmailsPostTypeLog {
 		if ($typenow == self::POST_TYPE) {
 			add_filter('display_post_states', '__return_false');
 			add_filter('bulk_actions-edit-' . self::POST_TYPE, array($this, 'adminBulkActionsEdit'));
+			add_filter('parse_query', array($this, 'adminPostOrder'));
 			add_filter('manage_' . self::POST_TYPE . '_posts_columns', array($this, 'adminManageColumns'));
 			add_action('manage_' . self::POST_TYPE . '_posts_custom_column', array($this, 'adminManageCustomColumn'), 10, 2);
 			add_filter('gettext', array($this, 'removePublished'), 10, 3);
@@ -123,6 +124,21 @@ class LogEmailsPostTypeLog {
 		unset($actions['edit']);
 
 		return $actions;
+	}
+
+	/**
+	* change default order to ID descending, for better consistency when multiple logs land in the same second
+	* @param WP_Query $query
+	* @return WP_Query
+	*/
+	public function adminPostOrder($query) {
+		// only for admin queries for this post type, with no specified order
+		if ($query->is_admin && $query->get('post_type') == self::POST_TYPE && empty($query->query_vars['orderby'])) {
+			$query->set('orderby', 'ID');
+			$query->set('order', 'DESC');
+		}
+
+		return $query;
 	}
 
 	/**
