@@ -80,6 +80,7 @@ class LogEmailsPostTypeLog {
 				'edit_posts'			=> 'activate_plugins',
 				'edit_others_posts'		=> 'activate_plugins',
 				'delete_post'			=> 'activate_plugins',
+				'delete_posts'			=> 'activate_plugins',
 				'read_post'				=> 'activate_plugins',
 				'read_private_posts'	=> 'do_not_allow',
 				'publish_posts'			=> 'do_not_allow',

@@ -6,8 +6,8 @@ Author URI: http://webaware.com.au/
 Donate link: http://shop.webaware.com.au/downloads/log-emails/
 Tags: email log, logging, logs, email
 Requires at least: 3.6.1
-Tested up to: 4.0
-Stable tag: 1.0.4
+Tested up to: 4.1
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,7 +25,7 @@ Logs are automatically purged after a defined period, set through a settings pag
 
 Many thanks to the generous efforts of our translators:
 
-* Czech (cs-CZ) -- ([Rudolf Klusal](http://www.klusik.cz/))
+* Czech (cs-CZ) -- [Rudolf Klusal](http://www.klusik.cz/)
 
 If you'd like to help out by translating this plugin, please [sign up for an account and dig in](http://translate.webaware.com.au/projects/log-emails).
 
@@ -67,6 +67,9 @@ Things I'd like to add to the plugin:
 * filter read / unread logs
 
 == Changelog ==
+
+= 1.0.5 [2014-12-18] =
+* fixed: undefined property `delete_posts` on custom post type capabilities in WordPress 4.1
 
 = 1.0.4 [2014-11-03] =
 * fixed: default sort order is by ID descending, to avoid ordering errors when logs occur in the same second
