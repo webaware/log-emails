@@ -3,10 +3,10 @@ Contributors: webaware
 Plugin Name: Log Emails
 Plugin URI: http://shop.webaware.com.au/downloads/log-emails/
 Author URI: http://webaware.com.au/
-Donate link: http://shop.webaware.com.au/downloads/log-emails/
+Donate link: http://shop.webaware.com.au/donations/?donation_for=Log+Emails
 Tags: email log, logging, logs, email
 Requires at least: 3.6.1
-Tested up to: 4.1
+Tested up to: 4.3
 Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -27,7 +27,7 @@ Many thanks to the generous efforts of our translators:
 
 * Czech (cs-CZ) -- [Rudolf Klusal](http://www.klusik.cz/)
 
-If you'd like to help out by translating this plugin, please [sign up for an account and dig in](http://translate.webaware.com.au/projects/log-emails).
+If you'd like to help out by translating this plugin, please [sign up for an account and dig in](https://translate.webaware.com.au/projects/log-emails).
 
 == Installation ==
 
@@ -46,17 +46,17 @@ Some plugins tell WordPress that their emails are HTML, using one of two accepte
 
 Some plugins just dump HTML into emails without saying it's HTML, or even following basic HTML document rules. If those emails have an alternative body, implying HTML + plain text parts, they'll be marked as HTML and will display as such.
 
-If you find that emails from some plugins are broken, please tell me in the [support forum](http://wordpress.org/support/plugin/log-emails).
+If you find that emails from some plugins are broken, please tell me in the [support forum](https://wordpress.org/support/plugin/log-emails).
 
 = What performance impact does it have? =
 
 Logging emails writes to the database. The plugin uses a custom post type, so logging each email has the same impact as saving a new WordPress post, i.e. generally not much.
 
-The plugin stops caching plugins from purging their cache every time an email log is saved, currently implemented for WP Super Cache. If you have a caching plugin that is being affected by Log Emails, please tell me in the [support forum](http://wordpress.org/support/plugin/log-emails).
+The plugin stops caching plugins from purging their cache every time an email log is saved, currently implemented for WP Super Cache. If you have a caching plugin that is being affected by Log Emails, please tell me in the [support forum](https://wordpress.org/support/plugin/log-emails).
 
 == Contributions ==
 
-* [Translate into your preferred language](http://translate.webaware.com.au/projects/log-emails)
+* [Translate into your preferred language](https://translate.webaware.com.au/projects/log-emails)
 * [Fork me on GitHub](https://github.com/webaware/log-emails)
 
 == Roadmap ==
@@ -68,23 +68,29 @@ Things I'd like to add to the plugin:
 
 == Changelog ==
 
-= 1.0.5 [2014-12-18] =
+= 1.0.5, 2014-12-18 =
+
 * fixed: undefined property `delete_posts` on custom post type capabilities in WordPress 4.1
 
-= 1.0.4 [2014-11-03] =
+= 1.0.4, 2014-11-03 =
+
 * fixed: default sort order is by ID descending, to avoid ordering errors when logs occur in the same second
 * added: Czech translation (thanks, [Rudolf Klusal](http://www.klusik.cz/)!)
 
-= 1.0.3 [2014-09-06] =
+= 1.0.3, 2014-09-06 =
+
 * fixed: PHP warning on static call to non-static methods in class LogEmailsCache_WpSuperCache
 * fixed: fix WordPress 4.0 box shadow on return-to-list :focus
 
-= 1.0.2 [2014-08-21] =
+= 1.0.2, 2014-08-21 =
+
 * fixed: bulk action checkboxes not appearing on stand-alone WordPress sites
 
-= 1.0.1 [2014-08-20] =
+= 1.0.1, 2014-08-20 =
+
 * fixed: menu link not appearing on stand-alone WordPress sites
 * added: uninstall handler to remove logs when plugin is uninstalled
 
-= 1.0.0 [2014-08-16] =
+= 1.0.0, 2014-08-16 =
+
 * initial public release
