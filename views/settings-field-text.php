@@ -1,6 +1,10 @@
 <?php
 // settings text field for Log Emails
 
+if (!defined('ABSPATH')) {
+	exit;
+}
+
 $value = get_option($args['option_name']);
 if ($value === false)
 	$value = $args['default'];

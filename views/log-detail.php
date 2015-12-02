@@ -1,5 +1,9 @@
 <?php
 // details of email log entry
+
+if (!defined('ABSPATH')) {
+	exit;
+}
 ?>
 
 <div class="wrap">

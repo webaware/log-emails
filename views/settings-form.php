@@ -1,5 +1,9 @@
 <?php
 // settings form for Log Emails
+
+if (!defined('ABSPATH')) {
+	exit;
+}
 ?>
 
 <div class="wrap">

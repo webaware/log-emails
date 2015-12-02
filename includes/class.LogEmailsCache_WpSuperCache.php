@@ -1,5 +1,9 @@
 <?php
 
+if (!defined('ABSPATH')) {
+	exit;
+}
+
 /**
 * stop WP Super Cache from clearing its cache just because we're adding or deleting email logs
 */
