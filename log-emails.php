@@ -3,7 +3,7 @@
 Plugin Name: Log Emails
 Plugin URI: http://shop.webaware.com.au/downloads/log-emails/
 Description: Log emails to the database, to enable email problem analysis
-Version: 1.0.6-dev
+Version: 1.0.6
 Author: WebAware
 Author URI: http://webaware.com.au/
 Text Domain: log-emails
@@ -11,7 +11,7 @@ Domain Path: /languages/
 */
 
 /*
-copyright (c) 2013-2014 WebAware Pty Ltd (email : support@webaware.com.au)
+copyright (c) 2013-2015 WebAware Pty Ltd (email : support@webaware.com.au)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as
@@ -34,7 +34,7 @@ if (!defined('ABSPATH')) {
 define('LOG_EMAILS_PLUGIN_FILE', __FILE__);
 define('LOG_EMAILS_PLUGIN_ROOT', dirname(__FILE__) . '/');
 define('LOG_EMAILS_PLUGIN_NAME', basename(dirname(__FILE__)) . '/' . basename(__FILE__));
-define('LOG_EMAILS_PLUGIN_VERSION', '1.0.6-dev');
+define('LOG_EMAILS_PLUGIN_VERSION', '1.0.6');
 
 require LOG_EMAILS_PLUGIN_ROOT . 'includes/class.LogEmailsPlugin.php';
 LogEmailsPlugin::getInstance();
