@@ -198,10 +198,10 @@ class LogEmailsPlugin {
 		add_settings_field('log_emails_limit_days', _x('Log limit', 'maximum days to keep email logs', 'log-emails'),
 			array($this, 'settingsFieldText'), 'log-emails', 'log-emails',
 			array(
-				'option_name' => 'log_emails_limit_days',
-				'label_text' => __('number of days to keep email logs', 'log-emails'),
-				'default' => 30,
-				'class' => 'small-text',
+				'option_name'		=> 'log_emails_limit_days',
+				'label_text'		=> __('number of days to keep email logs', 'log-emails'),
+				'default'			=> 30,
+				'class'				=> 'small-text',
 			)
 		);
 	}

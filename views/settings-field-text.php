@@ -12,6 +12,6 @@ if ($value === false)
 $class = isset($args['class']) ? $args['class'] : 'regular-text';
 ?>
 
-<input name="<?php echo $args['option_name']; ?>" type="text" class="<?php echo esc_attr($class); ?>" value="<?php echo esc_attr($value, 1); ?>" />
+<input name="<?php echo esc_attr($args['option_name']); ?>" type="text" class="<?php echo esc_attr($class); ?>" value="<?php echo esc_attr($value, 1); ?>" />
 <br />
 <em><?php echo esc_html($args['label_text']); ?></em>

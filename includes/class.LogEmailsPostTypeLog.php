@@ -172,7 +172,7 @@ class LogEmailsPostTypeLog {
 				$post = get_post($post_id);
 				if ($post) {
 					$view_link = $this->getLogViewURL($post_id);
-					printf('<strong><a class="row-title" href="%s">%s</a></strong>', $view_link, esc_html($post->post_title));
+					printf('<strong><a class="row-title" href="%s">%s</a></strong>', esc_url($view_link), esc_html($post->post_title));
 
 					// show log excerpt if viewing in excerpt mode
 					global $mode;
@@ -184,12 +184,12 @@ class LogEmailsPostTypeLog {
 
 					// add View link
 					$label = _x('View', 'view email log', 'log-emails');
-					$actions['view'] = sprintf('<a href="%s" title="%s">%s</a>', $view_link, esc_attr($label), $label);
+					$actions['view'] = sprintf('<a href="%s" title="%s">%s</a>', esc_url($view_link), esc_attr($label), esc_html($label));
 
 					// add Delete link
 					$label = _x('Delete', 'delete email log', 'log-emails');
 					$actions['delete'] = sprintf('<a href="%s" title="%s" class="submitdelete">%s</a>',
-						get_delete_post_link($post->ID, '', true), esc_attr($label), $label);
+						esc_url(get_delete_post_link($post->ID, '', true)), esc_attr($label), esc_html($label));
 
 					$actions = apply_filters('post_row_actions', $actions, $post);
 
@@ -332,12 +332,12 @@ class LogEmailsPostTypeLog {
 
 		// create post for message
 		$post_id = wp_insert_post(array(
-			'post_type' => self::POST_TYPE,
-			'post_content' => $message,
-			'post_title' => $subject,
-			'post_status' => 'publish',
-			'comment_status' => 'closed',
-			'ping_status' => 'closed',
+			'post_type'			=> self::POST_TYPE,
+			'post_content'		=> $message,
+			'post_title'		=> $subject,
+			'post_status'		=> 'publish',
+			'comment_status'	=> 'closed',
+			'ping_status'		=> 'closed',
 		));
 
 		// add field values
