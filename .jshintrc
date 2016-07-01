@@ -1,0 +1,11 @@
+{
+	"immed": true,
+	"latedef": "nofunc",
+	"nonew": true,
+	"undef": true,
+
+	// globals
+	"globals": {
+		"module": false
+	}
+}

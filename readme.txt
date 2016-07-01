@@ -11,7 +11,7 @@ Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Log emails to the database, to better diagnose email problems
+Log emails to the database, to enable email problem analysis
 
 == Description ==
 
