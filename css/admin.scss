@@ -2,19 +2,22 @@
 
 	width: 96%;
 
-	th {
+	> tbody > tr > th {
 		text-align: right;
 		vertical-align: top;
 		padding: 3px;
 		width: 8em;
 	}
 
-	td {
+	> tbody > tr > td {
 		padding: 3px;
 		border: 1px solid #ccc;
 		background-color: white;
 	}
 
+	.log-emails-content-html * {
+		margin: inherit;
+	}
 }
 
 th.column-_log_emails_warnings {

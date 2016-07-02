@@ -77,12 +77,12 @@ if (!defined('ABSPATH')) {
 <tr>
 	<th><?php echo esc_html_x('Message', 'content of email', 'log-emails'); ?></th>
 	<?php if (!empty($content_type) && strpos($content_type, 'text/html') !== false && empty($_GET['raw'])): ?>
-		<td>
+		<td class="log-emails-content log-emails-content-html">
 			<p><a href="<?php echo esc_url($current . '&raw=1'); ?>"><?php esc_html_e('view raw message', 'log-emails'); ?></a></p>
 			<?php echo wp_kses_post($post->post_content); ?>
 		</td>
 	<?php else: ?>
-		<td>
+		<td class="log-emails-content log-emails-content-raw">
 			<?php if (!empty($content_type) && strpos($content_type, 'text/html') !== false && !empty($_GET['raw'])): ?>
 				<p><a href="<?php echo esc_url($current); ?>"><?php esc_html_e('view HTML message', 'log-emails'); ?></a></p>
 			<?php endif; ?>
