@@ -210,7 +210,8 @@ class LogEmailsPlugin {
 	* admin menu items
 	*/
 	public function adminMenu() {
-		add_options_page('Log Emails', 'Log Emails', 'manage_options', 'log-emails', array($this, 'settingsPage'));
+		$label = __('Log Emails', 'log-emails');
+		add_options_page($label, $label, 'manage_options', 'log-emails', array($this, 'settingsPage'));
 	}
 
 	/**
