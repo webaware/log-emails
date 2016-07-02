@@ -416,6 +416,14 @@ class LogEmailsPostTypeLog {
 	public static function createLog($subject, $message, $alt_message, $fields) {
 		do_action('log_emails_cache_pause');
 
+		// prevent sanitising of email body and alt-body, so that we can access full email content in raw log view
+		remove_all_filters('pre_post_content');
+		remove_all_filters('content_save_pre');
+		remove_all_filters('sanitize_' . self::POST_TYPE . '_meta__log_emails_log_altbody');
+
+		// allow plugins to add back some filtering
+		do_action('log_emails_pre_insert');
+
 		// create post for message
 		$post_id = wp_insert_post(array(
 			'post_type'			=> self::POST_TYPE,
