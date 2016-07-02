@@ -208,7 +208,7 @@ class LogEmailsPostTypeLog {
 
 		// add View link
 		$label = _x('View', 'view email log', 'log-emails');
-		$actions['view'] = sprintf('<a href="%s" title="%s">%s</a>', esc_url($view_link), esc_attr($label), esc_html($label));
+		$actions['view'] = sprintf('<a href="%s" title="%s">%s</a>', esc_url($this->getLogViewURL($post->ID)), esc_attr($label), esc_html($label));
 
 		// add Delete link
 		$label = _x('Delete', 'delete email log', 'log-emails');
