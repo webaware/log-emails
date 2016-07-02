@@ -202,8 +202,8 @@ class LogEmailsPostTypeLog {
 
 					// show log excerpt if viewing in excerpt mode
 					global $mode;
-					if ('excerpt' == $mode) {
-						the_excerpt();
+					if ('excerpt' === $mode) {
+						echo '<p>', wp_trim_words($post->post_content), '</p>';
 					}
 				}
 				break;
