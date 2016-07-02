@@ -40,6 +40,7 @@ class LogEmailsPostTypeLog {
 		if ($typenow === self::POST_TYPE) {
 			add_filter('display_post_states', '__return_false');
 			add_filter('bulk_actions-edit-' . self::POST_TYPE, array($this, 'adminBulkActionsEdit'));
+			add_filter('bulk_post_updated_messages', array($this, 'adminBulkPostUpdatedMessages'), 10, 2);
 			add_filter('parse_query', array($this, 'adminPostOrder'));
 			add_filter('manage_' . self::POST_TYPE . '_posts_columns', array($this, 'adminManageColumns'));
 			add_action('manage_' . self::POST_TYPE . '_posts_custom_column', array($this, 'adminManageCustomColumn'), 10, 2);
@@ -130,6 +131,20 @@ class LogEmailsPostTypeLog {
 		unset($actions['edit']);
 
 		return $actions;
+	}
+
+	/**
+	* custom messages for actions
+	* @param array $messages
+	* @param array $bulk_counts
+	* @return array
+	*/
+	public function adminBulkPostUpdatedMessages($messages, $bulk_counts) {
+		$messages[self::POST_TYPE] = array(
+			'deleted' => _n('%s email log permanently deleted.', '%s email logs permanently deleted.', $bulk_counts['deleted'], 'log-emails'),
+		);
+
+		return $messages;
 	}
 
 	/**
