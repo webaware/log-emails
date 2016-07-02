@@ -220,11 +220,24 @@ class LogEmailsPostTypeLog {
 		global $wpdb;
 
 		$post_id = empty($_GET['post_id']) ? 0 : absint($_GET['post_id']);
-		if (!$post_id) {
+		$post = $post_id ? get_post($post_id) : false;
+
+		if (!$post) {
 			return;
 		}
 
-		$post = get_post($post_id);
+		$post_type = get_post_type_object($post->post_type);
+
+		if ($post->post_type !== self::POST_TYPE) {
+			wp_die(__('This post is not an email log.', 'log-emails'));
+		}
+
+		if (!current_user_can($post_type->cap->edit_posts)) {
+			wp_die(sprintf('<h1>%s</h1><p>%s</p>',
+				__('Cheatin&#8217; uh?', 'log-emails'),
+				__('You are not allowed to view email logs.', 'log-emails')),
+				403);
+		}
 
 		// get next / prev links
 		$sql = "

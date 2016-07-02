@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 1.1.0, 2016-07-02
+
+* SECURITY FIX: any logged-in user could see any email log or other post by guessing a post ID (thanks for responsible disclosure, [Plugin Vulnerabilities](https://www.pluginvulnerabilities.com/))
+
 ### 1.0.6, 2015-12-02
 
 * added: French translation (thanks, [Hugo Catellier](http://www.eticweb.ca/)!)
