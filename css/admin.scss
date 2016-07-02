@@ -17,10 +17,23 @@
 
 }
 
+th.column-_log_emails_warnings {
+	width: 16em;
+}
+
+td.column-_log_emails_warnings {
+
+	p {
+		color: #A00;
+	}
+
+}
+
 .log-emails-next-prev {
 
 	position: relative;
 	width: 96%;
+	height: 1em;
 	margin-bottom: 2em;
 
 	a {
@@ -47,6 +60,23 @@
 		box-shadow: none;
 		color: #444;
 	}
+}
+
+#the-list {
+
+	.type-log_emails_log {
+
+		.column-date {
+
+			// hide Date column BR elements that separate post status from date in other post types
+			br {
+				display: none;
+			}
+
+		}
+
+	}
+
 }
 
 /* provide support for older WP with no dashicons */

@@ -8,7 +8,15 @@ if (!defined('ABSPATH')) {
 
 <div class="wrap">
 
-<h2><?php esc_html_e('Email Logs', 'log-emails'); ?></h2>
+<h1><?php esc_html_e('Email Logs', 'log-emails'); ?></h1>
+
+<?php if ($warnings): ?>
+<div class="log-emails-warnings notice notice-warning">
+	<?php foreach ($warnings as $warning): ?>
+	<p><?php echo $warning; ?></p>
+	<?php endforeach; ?>
+</div>
+<?php endif; ?>
 
 <nav class="log-emails-next-prev">
 	<?php if ($previous): ?>

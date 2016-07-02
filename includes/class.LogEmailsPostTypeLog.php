@@ -33,6 +33,10 @@ class LogEmailsPostTypeLog {
 				$post = get_post($_GET['post']);
 				$typenow = $post->post_type;
 			}
+			elseif (!empty($_GET['post_id'])) {
+				$post = get_post($_GET['post_id']);
+				$typenow = $post->post_type;
+			}
 		}
 
 		add_action('admin_action_log_emails_view', array($this, 'viewLog'));
@@ -51,6 +55,7 @@ class LogEmailsPostTypeLog {
 			add_filter('views_edit-' . self::POST_TYPE, array($this, 'adminViewsEdit'));
 
 			wp_enqueue_script('jquery');
+			add_action('admin_enqueue_scripts', array($this, 'adminEnqueueScripts'));
 		}
 	}
 
@@ -171,8 +176,9 @@ class LogEmailsPostTypeLog {
 		unset($posts_columns['title']);
 
 		$insert_columns = array(
-			'_log_emails_title'  => _x('Subject', 'email subject', 'log-emails'),
-			'_log_emails_log_to' => _x('Recipients', 'email recipients (To:)', 'log-emails'),
+			'_log_emails_title'    => _x('Subject', 'email subject', 'log-emails'),
+			'_log_emails_log_to'   => _x('Recipients', 'email recipients (To:)', 'log-emails'),
+			'_log_emails_warnings' => _x('Warnings', 'list column title', 'log-emails'),
 		);
 
 		$posts_columns = array_merge(array_slice($posts_columns, 0, 1), $insert_columns, array_slice($posts_columns, 1));
@@ -206,6 +212,16 @@ class LogEmailsPostTypeLog {
 				$post = get_post($post_id);
 				if ($post) {
 					echo esc_html(get_post_meta($post_id, '_log_emails_log_to', true));
+				}
+				break;
+
+			case '_log_emails_warnings':
+				$post = get_post($post_id);
+				if ($post) {
+					$warnings = $this->getWarnings($post);
+					if (!empty($warnings)) {
+						echo '<p>', implode('</p><p>', $warnings), '</p>';
+					}
 				}
 				break;
 
@@ -284,7 +300,9 @@ class LogEmailsPostTypeLog {
 		// actions and filters just for this page
 		add_filter('admin_body_class', array($this, 'logViewBodyClass'));
 		add_filter('parent_file', array($this, 'fixLogViewMenuHierarchy'));
-		add_action('admin_enqueue_scripts', array($this, 'adminEnqueueScripts'));
+
+		// check for any warnings (missing fields)
+		$warnings = $this->getWarnings($post);
 
 		// show the view
 		require_once ABSPATH . 'wp-admin/admin-header.php';
@@ -352,6 +370,40 @@ class LogEmailsPostTypeLog {
 	*/
 	protected function getLogViewURL($post_id) {
 		return add_query_arg(array('action' => 'log_emails_view', 'post_id' => $post_id), admin_url('admin.php'));
+	}
+
+	/**
+	* get warning messages for email log
+	* @param WP_POST $post
+	* @return array
+	*/
+	public function getWarnings($post) {
+		$warnings = array();
+
+		$sender = get_post_meta($post->ID, '_log_emails_log_from', true);
+		if (empty($sender)) {
+			$warnings[] = esc_html_x('Email has no sender', 'log warning', 'log-emails');
+		}
+
+		$recipients = get_post_meta($post->ID, '_log_emails_log_to', true);
+		$cc         = get_post_meta($post->ID, '_log_emails_log_cc', true);
+		$bcc        = get_post_meta($post->ID, '_log_emails_log_bcc', true);
+		if (empty($recipients) && empty($cc) && empty($bcc)) {
+			$warnings[] = esc_html_x('missing recipients', 'log warning', 'log-emails');
+		}
+		elseif (empty($recipients)) {
+			$warnings[] = esc_html_x('no direct recipients, only CC/BCC', 'log warning', 'log-emails');
+		}
+
+		if (empty($post->post_title)) {
+			$warnings[] = esc_html_x('missing subject', 'log warning', 'log-emails');
+		}
+
+		if (empty($post->post_content)) {
+			$warnings[] = esc_html_x('missing body', 'log warning', 'log-emails');
+		}
+
+		return $warnings;
 	}
 
 	/**
