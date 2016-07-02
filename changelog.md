@@ -5,6 +5,12 @@
 ### 1.1.0, 2016-07-02
 
 * SECURITY FIX: any logged-in user could see any email log or other post by guessing a post ID (thanks for responsible disclosure, [Plugin Vulnerabilities](https://www.pluginvulnerabilities.com/))
+* fixed: second row of action links for each log in list
+* fixed: move Date column back to end of row in list
+* changed: don't sanitize email log body / alt-body when saving, to preserve more of actual email for log view (credit: [Hrohh](https://wordpress.org/support/profile/hrohh))
+* changed: restrict log view CSS so that it doesn't affect email content display (credit: [Hrohh](https://wordpress.org/support/profile/hrohh))
+* changed: improved accessibility in the log view page
+* added: warn when an email is missing sender, recipients, subject, or body
 
 ### 1.0.6, 2015-12-02
 

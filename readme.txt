@@ -6,8 +6,8 @@ Author URI: http://webaware.com.au/
 Donate link: http://shop.webaware.com.au/donations/?donation_for=Log+Emails
 Tags: email log, logging, logs, email
 Requires at least: 3.6.1
-Tested up to: 4.4
-Stable tag: 1.0.6
+Tested up to: 4.5.3
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,9 +69,9 @@ Things I'd like to add to the plugin:
 
 == Upgrade Notice ==
 
-= 1.0.6 =
+= 1.1.0 =
 
-added French translation, verified working in WordPress 4.4
+SECURITY FIX: any logged-in user could see any email log or other post by guessing a post ID; see changelog for other changes.
 
 == Changelog ==
 
@@ -79,6 +79,12 @@ added French translation, verified working in WordPress 4.4
 
 The full changelog can be found [on GitHub](https://github.com/webaware/log-emails/blob/master/changelog.md). Recent entries:
 
-### 1.0.6, 2015-12-02
+### 1.1.0, 2016-07-02
 
-* added: French translation (thanks, [Hugo Catellier](http://www.eticweb.ca/)!)
+* SECURITY FIX: any logged-in user could see any email log or other post by guessing a post ID (thanks for responsible disclosure, [Plugin Vulnerabilities](https://www.pluginvulnerabilities.com/))
+* fixed: second row of action links for each log in list
+* fixed: move Date column back to end of row in list
+* changed: don't sanitize email log body / alt-body when saving, to preserve more of actual email for log view (credit: [Hrohh](https://wordpress.org/support/profile/hrohh))
+* changed: restrict log view CSS so that it doesn't affect email content display (credit: [Hrohh](https://wordpress.org/support/profile/hrohh))
+* changed: improved accessibility in the log view page
+* added: warn when an email is missing sender, recipients, subject, or body
