@@ -37,12 +37,13 @@ class LogEmailsPostTypeLog {
 
 		add_action('admin_action_log_emails_view', array($this, 'viewLog'));
 
-		if ($typenow == self::POST_TYPE) {
+		if ($typenow === self::POST_TYPE) {
 			add_filter('display_post_states', '__return_false');
 			add_filter('bulk_actions-edit-' . self::POST_TYPE, array($this, 'adminBulkActionsEdit'));
 			add_filter('parse_query', array($this, 'adminPostOrder'));
 			add_filter('manage_' . self::POST_TYPE . '_posts_columns', array($this, 'adminManageColumns'));
 			add_action('manage_' . self::POST_TYPE . '_posts_custom_column', array($this, 'adminManageCustomColumn'), 10, 2);
+			add_filter('post_row_actions', array($this, 'postRowActions'), 10, 2);
 			add_filter('gettext', array($this, 'removePublished'), 10, 3);
 			add_action('admin_print_footer_scripts', array($this, 'adminPrintFooterScripts'));
 
@@ -179,27 +180,6 @@ class LogEmailsPostTypeLog {
 					if ('excerpt' == $mode) {
 						the_excerpt();
 					}
-
-					$actions = array();
-
-					// add View link
-					$label = _x('View', 'view email log', 'log-emails');
-					$actions['view'] = sprintf('<a href="%s" title="%s">%s</a>', esc_url($view_link), esc_attr($label), esc_html($label));
-
-					// add Delete link
-					$label = _x('Delete', 'delete email log', 'log-emails');
-					$actions['delete'] = sprintf('<a href="%s" title="%s" class="submitdelete">%s</a>',
-						esc_url(get_delete_post_link($post->ID, '', true)), esc_attr($label), esc_html($label));
-
-					$actions = apply_filters('post_row_actions', $actions, $post);
-
-					echo '<div class="row-actions">';
-					$sep = '';
-					foreach ($actions as $action => $link) {
-						echo "<span class='$action'>$sep$link</span>";
-						$sep = ' | ';
-					}
-					echo '</div>';
 				}
 				break;
 
@@ -211,6 +191,27 @@ class LogEmailsPostTypeLog {
 				break;
 
 		}
+	}
+
+	/**
+	* customise the table list row actions
+	* @param array $actions
+	* @param WP_Post $post
+	* @return return
+	*/
+	public function postRowActions($actions, $post) {
+		$actions = array();
+
+		// add View link
+		$label = _x('View', 'view email log', 'log-emails');
+		$actions['view'] = sprintf('<a href="%s" title="%s">%s</a>', esc_url($view_link), esc_attr($label), esc_html($label));
+
+		// add Delete link
+		$label = _x('Delete', 'delete email log', 'log-emails');
+		$actions['delete'] = sprintf('<a href="%s" title="%s" class="submitdelete">%s</a>',
+			esc_url(get_delete_post_link($post->ID, '', true)), esc_attr($label), esc_html($label));
+
+		return $actions;
 	}
 
 	/**
