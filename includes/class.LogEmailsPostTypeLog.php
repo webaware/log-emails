@@ -155,8 +155,12 @@ class LogEmailsPostTypeLog {
 	public function adminManageColumns($posts_columns) {
 		unset($posts_columns['title']);
 
-		$posts_columns['_log_emails_title'] = _x('Subject', 'email subject', 'log-emails');
-		$posts_columns['_log_emails_log_to'] = _x('Recipients', 'email recipients (To:)', 'log-emails');
+		$insert_columns = array(
+			'_log_emails_title'  => _x('Subject', 'email subject', 'log-emails'),
+			'_log_emails_log_to' => _x('Recipients', 'email recipients (To:)', 'log-emails'),
+		);
+
+		$posts_columns = array_merge(array_slice($posts_columns, 0, 1), $insert_columns, array_slice($posts_columns, 1));
 
 		return $posts_columns;
 	}
