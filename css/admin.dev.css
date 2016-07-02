@@ -1,0 +1,106 @@
+/* line 1, admin.scss */
+.log-emails-log-details {
+  width: 96%;
+}
+/* line 5, admin.scss */
+.log-emails-log-details > tbody > tr > th {
+  text-align: right;
+  vertical-align: top;
+  padding: 3px;
+  width: 8em;
+}
+/* line 12, admin.scss */
+.log-emails-log-details > tbody > tr > td {
+  padding: 3px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+/* line 18, admin.scss */
+.log-emails-log-details .log-emails-content-html * {
+  margin: inherit;
+}
+
+/* line 23, admin.scss */
+th.column-_log_emails_warnings {
+  width: 16em;
+}
+
+/* line 29, admin.scss */
+td.column-_log_emails_warnings p {
+  color: #A00;
+}
+
+/* line 35, admin.scss */
+.log-emails-next-prev {
+  position: relative;
+  width: 96%;
+  height: 1em;
+  margin-bottom: 2em;
+}
+/* line 42, admin.scss */
+.log-emails-next-prev a {
+  position: absolute;
+  text-decoration: none;
+}
+
+/* line 49, admin.scss */
+.log-emails-link-prev {
+  left: 40%;
+}
+
+/* line 53, admin.scss */
+.log-emails-link-next {
+  right: 40%;
+}
+
+/* line 57, admin.scss */
+.log-emails-link-list {
+  left: 50%;
+  text-indent: -0.75em;
+  /* WP 4.0 places box shadow around where character would be before text-index; clean it up */
+}
+/* line 62, admin.scss */
+.log-emails-link-list:focus {
+  box-shadow: none;
+  color: #444;
+}
+
+/* line 75, admin.scss */
+#the-list .type-log_emails_log .column-date br {
+  display: none;
+}
+
+/* provide support for older WP with no dashicons */
+/* line 92, admin.scss */
+.branch-3-5 .log-emails-next-prev .dashicons,
+.branch-3-6 .log-emails-next-prev .dashicons,
+.branch-3-7 .log-emails-next-prev .dashicons {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 1;
+  vertical-align: top;
+  text-align: center;
+}
+/* line 103, admin.scss */
+.branch-3-5 .log-emails-next-prev .dashicons-arrow-left-alt2:before,
+.branch-3-6 .log-emails-next-prev .dashicons-arrow-left-alt2:before,
+.branch-3-7 .log-emails-next-prev .dashicons-arrow-left-alt2:before {
+  content: "<";
+}
+/* line 107, admin.scss */
+.branch-3-5 .log-emails-next-prev .dashicons-arrow-right-alt2:before,
+.branch-3-6 .log-emails-next-prev .dashicons-arrow-right-alt2:before,
+.branch-3-7 .log-emails-next-prev .dashicons-arrow-right-alt2:before {
+  content: ">";
+}
+/* line 111, admin.scss */
+.branch-3-5 .log-emails-next-prev .dashicons-list-view:before,
+.branch-3-6 .log-emails-next-prev .dashicons-list-view:before,
+.branch-3-7 .log-emails-next-prev .dashicons-list-view:before {
+  content: "=";
+}
+
+/*# sourceMappingURL=admin.dev.css.map */
