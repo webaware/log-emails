@@ -28,7 +28,7 @@ Many thanks to the generous efforts of our translators:
 * Czech (cs-CZ) -- [Rudolf Klusal](http://www.klusik.cz/)
 * French (fr-FR) -- [Hugo Catellier](http://www.eticweb.ca/)
 
-If you'd like to help out by translating this plugin, please [sign up for an account and dig in](https://translate.webaware.com.au/projects/log-emails).
+If you'd like to help out by translating this plugin, please [sign up for an account and dig in](https://translate.wordpress.org/projects/wp-plugins/log-emails).
 
 == Installation ==
 
@@ -57,7 +57,7 @@ The plugin stops caching plugins from purging their cache every time an email lo
 
 == Contributions ==
 
-* [Translate into your preferred language](https://translate.webaware.com.au/projects/log-emails)
+* [Translate into your preferred language](https://translate.wordpress.org/projects/wp-plugins/log-emails)
 * [Fork me on GitHub](https://github.com/webaware/log-emails)
 
 == Roadmap ==

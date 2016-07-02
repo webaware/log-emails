@@ -181,7 +181,7 @@ class LogEmailsPlugin {
 		if ($file == LOG_EMAILS_PLUGIN_NAME) {
 			$links[] = sprintf('<a href="https://wordpress.org/support/plugin/log-emails" target="_blank">%s</a>', _x('Get Help', 'plugin details links', 'log-emails'));
 			$links[] = sprintf('<a href="https://wordpress.org/plugins/log-emails/" target="_blank">%s</a>', _x('Rating', 'plugin details links', 'log-emails'));
-			$links[] = sprintf('<a href="https://translate.webaware.com.au/projects/log-emails" target="_blank">%s</a>', _x('Translate', 'plugin details links', 'log-emails'));
+			$links[] = sprintf('<a href="https://translate.wordpress.org/projects/wp-plugins/log-emails" target="_blank">%s</a>', _x('Translate', 'plugin details links', 'log-emails'));
 			$links[] = sprintf('<a href="http://shop.webaware.com.au/donations/?donation_for=Log+Emails" target="_blank">%s</a>', _x('Donate', 'plugin details links', 'log-emails'));
 		}
 
