@@ -26,7 +26,9 @@ Logs are automatically purged after a defined period, set through a settings pag
 Many thanks to the generous efforts of our translators:
 
 * Czech (cs-CZ) -- [Rudolf Klusal](http://www.klusik.cz/)
+* English (en_CA) -- [the English (Canadian) translation team](https://translate.wordpress.org/locale/en-ca/default/wp-plugins/log-emails)
 * French (fr-FR) -- [Hugo Catellier](http://www.eticweb.ca/)
+* Korean (ko_KR) -- [the Korean translation team](https://translate.wordpress.org/locale/ko/default/wp-plugins/log-emails)
 
 If you'd like to help out by translating this plugin, please [sign up for an account and dig in](https://translate.wordpress.org/projects/wp-plugins/log-emails).
 
