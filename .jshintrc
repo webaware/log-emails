@@ -6,6 +6,7 @@
 
 	// globals
 	"globals": {
-		"module": false
+		"module": false,
+		"require": false
 	}
 }
