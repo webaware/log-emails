@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Log Emails
-Plugin URI: http://shop.webaware.com.au/downloads/log-emails/
+Plugin URI: https://shop.webaware.com.au/downloads/log-emails/
 Description: Log emails to the database, to enable email problem analysis
 Version: 1.1.0
 Author: WebAware
-Author URI: http://webaware.com.au/
+Author URI: https://webaware.com.au/
 Text Domain: log-emails
 Domain Path: /languages/
 */

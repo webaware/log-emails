@@ -1,15 +1,15 @@
 === Log Emails ===
 Contributors: webaware
 Plugin Name: Log Emails
-Plugin URI: http://shop.webaware.com.au/downloads/log-emails/
-Author URI: http://webaware.com.au/
-Donate link: http://shop.webaware.com.au/donations/?donation_for=Log+Emails
+Plugin URI: https://shop.webaware.com.au/downloads/log-emails/
+Author URI: https://webaware.com.au/
+Donate link: https://shop.webaware.com.au/donations/?donation_for=Log+Emails
 Tags: email log, logging, logs, email
 Requires at least: 3.6.1
 Tested up to: 4.5.3
 Stable tag: 1.1.0
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Log emails to the database, to enable email problem analysis
 
@@ -17,7 +17,7 @@ Log emails to the database, to enable email problem analysis
 
 Log emails to the WordPress database for later analysis. Access is restricted to administrators, and emails with WordPress passwords are obfuscated for security / privacy. Useful for diagnosing lost email problems.
 
-Use this plugin with [Disable Emails](http://shop.webaware.com.au/downloads/disable-emails/) to divert all WordPress emails into logs, especially handy for developers.
+Use this plugin with [Disable Emails](https://shop.webaware.com.au/downloads/disable-emails/) to divert all WordPress emails into logs, especially handy for developers.
 
 Logs are automatically purged after a defined period, set through a settings page in the WordPress admin. Setting the period to 0 prevents logs from being purged. Deactivating the plugin purges all logs.
 
