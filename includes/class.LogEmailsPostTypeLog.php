@@ -109,6 +109,7 @@ class LogEmailsPostTypeLog {
 	public function adminViewsEdit($views) {
 		unset($views['publish']);
 		unset($views['draft']);
+		unset($views['mine']);
 
 		return $views;
 	}
