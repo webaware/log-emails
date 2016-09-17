@@ -68,6 +68,7 @@ class LogEmailsPostTypeLog {
 			'labels' => array (
 				'name'					=> __('Email Logs', 'log-emails'),
 				'singular_name'			=> __('Email Log', 'log-emails'),
+				'menu_name'				=> __('Log Emails', 'log-emails'),
 				'search_items'			=> __('Search Email Log', 'log-emails'),
 				'not_found'				=> __('No email logs found', 'log-emails'),
 			),

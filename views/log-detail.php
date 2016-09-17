@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) {
 
 <div class="wrap">
 
-	<h1><?php esc_html_e('Email Logs', 'log-emails'); ?></h1>
+	<h1><?php esc_html_e('Log Emails', 'log-emails'); ?></h1>
 
 	<?php if ($warnings): ?>
 	<div class="log-emails-warnings notice notice-warning">

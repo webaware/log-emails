@@ -5,6 +5,7 @@
 ### 1.2.0, soon...
 
 * fixed: capture BuddyPress email recipients
+* changed: menu item names are now Log Emails, the same as the plugin name
 
 ### 1.1.0, 2016-07-02
 
