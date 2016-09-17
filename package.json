@@ -1,6 +1,6 @@
 {
   "name": "log-emails",
-  "version": "1.1.0",
+  "version": "1.2.0-dev",
   "description": "Log emails to the database, to enable email problem analysis",
   "main": "Gruntfile.js",
   "devDependencies": {
