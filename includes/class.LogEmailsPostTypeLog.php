@@ -120,7 +120,7 @@ class LogEmailsPostTypeLog {
 	* @return string
 	*/
 	public function removePublished($translation, $text, $domain) {
-		if ($domain == 'default' && $text == 'Published') {
+		if ($domain === 'default' && $text === 'Published') {
 			$translation = '';
 		}
 
@@ -159,7 +159,7 @@ class LogEmailsPostTypeLog {
 	*/
 	public function adminPostOrder($query) {
 		// only for admin queries for this post type, with no specified order
-		if ($query->is_admin && $query->get('post_type') == self::POST_TYPE && empty($query->query_vars['orderby'])) {
+		if ($query->is_admin && $query->get('post_type') === self::POST_TYPE && empty($query->query_vars['orderby'])) {
 			$query->set('orderby', 'ID');
 			$query->set('order', 'DESC');
 		}

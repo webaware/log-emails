@@ -138,7 +138,7 @@ class LogEmailsPlugin {
 
 		// detect text/html when content type is text/plain but email has an alternate message (WP e-Commerce, I'm looking at you!)
 		$contentType = $phpmailer->ContentType;
-		if ($contentType == 'text/plain' && !empty($alt_message)) {
+		if ($contentType === 'text/plain' && !empty($alt_message)) {
 			$contentType = 'text/html';
 		}
 		$fields['_log_emails_log_content-type'] = $contentType;
@@ -201,7 +201,7 @@ class LogEmailsPlugin {
 	* action hook for adding plugin details links
 	*/
 	public function addPluginDetailsLinks($links, $file) {
-		if ($file == LOG_EMAILS_PLUGIN_NAME) {
+		if ($file === LOG_EMAILS_PLUGIN_NAME) {
 			$links[] = sprintf('<a href="https://wordpress.org/support/plugin/log-emails" target="_blank">%s</a>', _x('Get Help', 'plugin details links', 'log-emails'));
 			$links[] = sprintf('<a href="https://wordpress.org/plugins/log-emails/" target="_blank">%s</a>', _x('Rating', 'plugin details links', 'log-emails'));
 			$links[] = sprintf('<a href="https://translate.wordpress.org/projects/wp-plugins/log-emails" target="_blank">%s</a>', _x('Translate', 'plugin details links', 'log-emails'));
