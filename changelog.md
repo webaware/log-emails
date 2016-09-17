@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 1.2.0, soon...
+
+* fixed: capture BuddyPress email recipients
+
 ### 1.1.0, 2016-07-02
 
 * SECURITY FIX: any logged-in user could see any email log or other post by guessing a post ID (thanks for responsible disclosure, [Plugin Vulnerabilities](https://www.pluginvulnerabilities.com/))

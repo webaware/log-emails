@@ -44,6 +44,7 @@ class LogEmailsPlugin {
 
 		// hooks for monitoring mails, priority set low so they run after other plugins
 		add_filter('wp_mail', array($this, 'wpMail'), 99999);
+		add_filter('bp_email_set_to', array($this, 'buddypressRecipients'), 99999);
 		add_action('phpmailer_init', array($this, 'phpmailerInit'), 99999);
 
 		// load custom post type handler
@@ -90,6 +91,28 @@ class LogEmailsPlugin {
 	public function wpMail($args) {
 		$this->args = $args;
 		return $args;
+	}
+
+	/**
+	* if BuddyPress is managing mail calls itself, grab a copy of the recipients since we won't get the above
+	* @param BP_Email_Recipient[] $recipients
+	* @return BP_Email_Recipient[]
+	*/
+	public function buddypressRecipients($recipients) {
+		$to = array();
+		foreach ($recipients as $recipient) {
+			$to[] = $recipient->get_address();
+		}
+
+		$this->args = array(
+			'to'			=> implode(',', $to),
+			'subject'		=> false,
+			'message'		=> false,
+			'headers'		=> false,
+			'attachments'	=> array(),
+		);
+
+		return $recipients;
 	}
 
 	/**
