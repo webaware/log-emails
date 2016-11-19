@@ -46,7 +46,7 @@ class LogEmailsPostTypeLog {
 			add_filter('bulk_actions-edit-' . self::POST_TYPE, array($this, 'adminBulkActionsEdit'));
 			add_filter('bulk_post_updated_messages', array($this, 'adminBulkPostUpdatedMessages'), 10, 2);
 			add_filter('parse_query', array($this, 'adminPostOrder'));
-			add_filter('manage_' . self::POST_TYPE . '_posts_columns', array($this, 'adminManageColumns'));
+			add_filter('manage_' . self::POST_TYPE . '_posts_columns', array($this, 'adminManageColumns'), 100);
 			add_action('manage_' . self::POST_TYPE . '_posts_custom_column', array($this, 'adminManageCustomColumn'), 10, 2);
 			add_filter('post_row_actions', array($this, 'postRowActions'), 10, 2);
 			add_filter('gettext', array($this, 'removePublished'), 10, 3);
@@ -175,17 +175,23 @@ class LogEmailsPostTypeLog {
 	* @return array
 	*/
 	public function adminManageColumns($posts_columns) {
-		unset($posts_columns['title']);
+		$new_columns = array();
 
-		$insert_columns = array(
-			'_log_emails_title'    => _x('Subject', 'email subject', 'log-emails'),
-			'_log_emails_log_to'   => _x('Recipients', 'email recipients (To:)', 'log-emails'),
-			'_log_emails_warnings' => _x('Warnings', 'list column title', 'log-emails'),
-		);
+		// bring across bulk action checkbox column
+		if (isset($posts_columns['cb'])) {
+			$new_columns['cb'] = $posts_columns['cb'];
+		}
 
-		$posts_columns = array_merge(array_slice($posts_columns, 0, 1), $insert_columns, array_slice($posts_columns, 1));
+		$new_columns['_log_emails_title']		= _x('Subject', 'email subject', 'log-emails');
+		$new_columns['_log_emails_log_to']		= _x('Recipients', 'email recipients (To:)', 'log-emails');
+		$new_columns['_log_emails_warnings']	= _x('Warnings', 'list column title', 'log-emails');
 
-		return $posts_columns;
+		// bring across date column
+		if (isset($posts_columns['date'])) {
+			$new_columns['date'] = $posts_columns['date'];
+		}
+
+		return $new_columns;
 	}
 
 	/**
