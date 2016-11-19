@@ -46,6 +46,7 @@ class LogEmailsPostTypeLog {
 			add_filter('bulk_actions-edit-' . self::POST_TYPE, array($this, 'adminBulkActionsEdit'));
 			add_filter('bulk_post_updated_messages', array($this, 'adminBulkPostUpdatedMessages'), 10, 2);
 			add_filter('parse_query', array($this, 'adminPostOrder'));
+			add_filter('posts_search', array($this, 'adminPostsSearch'), 10, 2);
 			add_filter('manage_' . self::POST_TYPE . '_posts_columns', array($this, 'adminManageColumns'), 100);
 			add_action('manage_' . self::POST_TYPE . '_posts_custom_column', array($this, 'adminManageCustomColumn'), 10, 2);
 			add_filter('post_row_actions', array($this, 'postRowActions'), 10, 2);
@@ -167,6 +168,30 @@ class LogEmailsPostTypeLog {
 		}
 
 		return $query;
+	}
+
+	/**
+	* add query condition for product range if selected
+	* @param string $search the search string so far
+	* @param WP_Query $query
+	* @return string
+	*/
+	public function adminPostsSearch($search, $query) {
+		global $wpdb;
+
+		if ($query->is_main_query() && !empty($query->query['s'])) {
+			$sql    = "
+				or exists (
+					select * from {$wpdb->postmeta} where post_id={$wpdb->posts}.ID
+					and meta_key in ('_log_emails_log_from','_log_emails_log_to','_log_emails_log_cc','_log_emails_log_bcc')
+					and meta_value like %s
+				)
+			";
+			$like   = '%' . $wpdb->esc_like($query->query['s']) . '%';
+			$search = preg_replace("#(\({$wpdb->posts}.post_title LIKE [^)]+\))#", '$1' . $wpdb->prepare($sql, $like), $search);
+		}
+
+		return $search;
 	}
 
 	/**

@@ -7,6 +7,7 @@
 * fixed: capture BuddyPress email recipients
 * fixed: remove Mine filter on list of email logs
 * fixed: stop some post admin plugins messing with the list of email logs
+* added: search also looks in From, To, CC, BCC email addresses
 * changed: menu item names are now Log Emails, the same as the plugin name
 
 ### 1.1.0, 2016-07-02
