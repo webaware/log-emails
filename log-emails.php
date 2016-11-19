@@ -5,7 +5,7 @@ Plugin URI: https://shop.webaware.com.au/downloads/log-emails/
 Description: Log emails to the database, to enable email problem analysis
 Version: 1.2.0-dev
 Author: WebAware
-Author URI: https://webaware.com.au/
+Author URI: https://shop.webaware.com.au/
 Text Domain: log-emails
 Domain Path: /languages/
 */

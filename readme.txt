@@ -2,7 +2,7 @@
 Contributors: webaware
 Plugin Name: Log Emails
 Plugin URI: https://shop.webaware.com.au/downloads/log-emails/
-Author URI: https://webaware.com.au/
+Author URI: https://shop.webaware.com.au/
 Donate link: https://shop.webaware.com.au/donations/?donation_for=Log+Emails
 Tags: email log, logging, logs, email
 Requires at least: 3.6.1
