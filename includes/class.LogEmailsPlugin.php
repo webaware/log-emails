@@ -121,16 +121,10 @@ class LogEmailsPlugin {
 	*/
 	public function phpmailerInit($phpmailer) {
 		// get message body, protect passwords
-		$message = $phpmailer->Body;
-		if (stripos($message, 'password') !== false) {
-			$message = preg_replace('/.*password.*/im', __('*** password redacted ***', 'log-emails'), $message);
-		}
+		$message = $this->maybeObfuscatePassword($phpmailer->Body);
 
 		// get alternative message body, protect passwords
-		$alt_message = $phpmailer->AltBody;
-		if (stripos($alt_message, 'password') !== false) {
-			$alt_message = preg_replace('/.*password.*/im', __('*** password redacted ***', 'log-emails'), $alt_message);
-		}
+		$alt_message = $this->maybeObfuscatePassword($phpmailer->AltBody);
 
 		// collate additional fields into array
 		$fields = array();
@@ -187,6 +181,23 @@ class LogEmailsPlugin {
 
 		// reset recorded wp_mail() arguments
 		$this->args = false;
+	}
+
+	/**
+	* maybe obfuscate a line with a password
+	* @param string $line
+	* @return string
+	*/
+	protected function maybeObfuscatePassword($line) {
+		$line = preg_replace('/.*password.*/im', __('*** password redacted ***', 'log-emails'), $line);
+
+		// maybe also obfuscate localised term for password
+		$password_local = strtolower(translate('Password'));
+		if ($password_local !== 'password') {
+			$line = preg_replace('/.*' . preg_quote($password_local) . '.*/im', __('*** password redacted ***', 'log-emails'), $line);
+		}
+
+		return $line;
 	}
 
 	/**
