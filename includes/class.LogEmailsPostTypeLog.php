@@ -47,6 +47,7 @@ class LogEmailsPostTypeLog {
 			add_filter('bulk_post_updated_messages', array($this, 'adminBulkPostUpdatedMessages'), 10, 2);
 			add_filter('parse_query', array($this, 'adminPostOrder'));
 			add_filter('posts_search', array($this, 'adminPostsSearch'), 10, 2);
+			add_action('manage_edit-' . self::POST_TYPE . '_sortable_columns', array($this, 'adminSortableColumns'));
 			add_filter('manage_' . self::POST_TYPE . '_posts_columns', array($this, 'adminManageColumns'), 100);
 			add_action('manage_' . self::POST_TYPE . '_posts_custom_column', array($this, 'adminManageCustomColumn'), 10, 2);
 			add_filter('post_row_actions', array($this, 'postRowActions'), 10, 2);
@@ -162,12 +163,30 @@ class LogEmailsPostTypeLog {
 	*/
 	public function adminPostOrder($query) {
 		// only for admin queries for this post type, with no specified order
-		if ($query->is_admin && $query->get('post_type') === self::POST_TYPE && empty($query->query_vars['orderby'])) {
-			$query->set('orderby', 'ID');
-			$query->set('order', 'DESC');
+		if ($query->is_admin && $query->get('post_type') === self::POST_TYPE) {
+			if (empty($query->query_vars['orderby'])) {
+				$query->set('orderby',  'ID');
+				$query->set('order',    'DESC');
+			}
+			elseif ($query->query_vars['orderby'] === 'log_emails_log_to') {
+				$query->set('orderby',  'meta_value');
+				$query->set('meta_key', '_log_emails_log_to');
+			}
 		}
 
 		return $query;
+	}
+
+	/**
+	* add custom columns to sort by
+	* @param array $columns
+	* @return array
+	*/
+	public function adminSortableColumns($columns) {
+		$columns['_log_emails_title']	= 'title';
+		$columns['_log_emails_log_to']	= 'log_emails_log_to';
+
+		return $columns;
 	}
 
 	/**
