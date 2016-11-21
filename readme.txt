@@ -5,9 +5,9 @@ Plugin URI: https://shop.webaware.com.au/downloads/log-emails/
 Author URI: https://shop.webaware.com.au/
 Donate link: https://shop.webaware.com.au/donations/?donation_for=Log+Emails
 Tags: email log, logging, logs, email
-Requires at least: 3.6.1
-Tested up to: 4.5.3
-Stable tag: 1.1.0
+Requires at least: 4.0
+Tested up to: 4.7
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,9 +71,9 @@ Things I'd like to add to the plugin:
 
 == Upgrade Notice ==
 
-= 1.1.0 =
+= 1.2.0 =
 
-SECURITY FIX: any logged-in user could see any email log or other post by guessing a post ID; see changelog for other changes.
+search supports email addresses; sort by subject, recipients; capture BuddyPress email recipients; removed Mine filter on list of email logs; password obfuscation for the current locale
 
 == Changelog ==
 
@@ -81,12 +81,12 @@ SECURITY FIX: any logged-in user could see any email log or other post by guessi
 
 The full changelog can be found [on GitHub](https://github.com/webaware/log-emails/blob/master/changelog.md). Recent entries:
 
-### 1.1.0, 2016-07-02
+### 1.2.0, 2016-11-21
 
-* SECURITY FIX: any logged-in user could see any email log or other post by guessing a post ID (thanks for responsible disclosure, [Plugin Vulnerabilities](https://www.pluginvulnerabilities.com/))
-* fixed: second row of action links for each log in list
-* fixed: move Date column back to end of row in list
-* changed: don't sanitize email log body / alt-body when saving, to preserve more of actual email for log view (credit: [Hrohh](https://wordpress.org/support/profile/hrohh))
-* changed: restrict log view CSS so that it doesn't affect email content display (credit: [Hrohh](https://wordpress.org/support/profile/hrohh))
-* changed: improved accessibility in the log view page
-* added: warn when an email is missing sender, recipients, subject, or body
+* fixed: capture BuddyPress email recipients
+* fixed: remove Mine filter on list of email logs
+* fixed: stop some post admin plugins messing with the list of email logs
+* added: search also looks in From, To, CC, BCC email addresses
+* added: sort by subject, recipients
+* changed: password obfuscation also for the current locale
+* changed: menu item names are now Log Emails, the same as the plugin name

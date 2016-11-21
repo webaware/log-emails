@@ -2,7 +2,7 @@
 
 ## Changelog
 
-### 1.2.0, soon...
+### 1.2.0, 2016-11-21
 
 * fixed: capture BuddyPress email recipients
 * fixed: remove Mine filter on list of email logs
