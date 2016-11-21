@@ -75,9 +75,9 @@ module.exports = function (grunt) {
 					require("autoprefixer")({
 						// @link https://github.com/ai/browserslist#queries
 						browsers: [
-							"last 3 versions",
+							"last 2 versions",
 							"ie 11",
-							"ios >= 7",
+							"ios >= 8",
 							"android >= 4"
 						]
 					})
@@ -99,6 +99,5 @@ module.exports = function (grunt) {
 
 	grunt.registerTask("release", ["clean","copy","compress"]);
 	grunt.registerTask("scss", ["sass","postcss"]);
-	grunt.registerTask("default", [ "jshint" ]);
 
 };
