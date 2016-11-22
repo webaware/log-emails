@@ -192,7 +192,8 @@ class LogEmailsPlugin {
 		$line = preg_replace('/.*password.*/im', __('*** password redacted ***', 'log-emails'), $line);
 
 		// maybe also obfuscate localised term for password
-		$password_local = strtolower(translate('Password'));
+		$password_local = translate('Password');
+		$password_local = function_exists('mb_strtolower') ? mb_strtolower($password_local) : strtolower($password_local);
 		if ($password_local !== 'password') {
 			$line = preg_replace('/.*' . preg_quote($password_local) . '.*/im', __('*** password redacted ***', 'log-emails'), $line);
 		}

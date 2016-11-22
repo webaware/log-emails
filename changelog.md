@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 1.2.1, soon...
+
+* fixed: password obfuscation for the current locale supports non-ascii characters
+
 ### 1.2.0, 2016-11-21
 
 * fixed: capture BuddyPress email recipients
