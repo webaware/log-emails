@@ -30,12 +30,10 @@ class LogEmailsPostTypeLog {
 		if (empty($typenow)) {
 			// try to pick it up from the query string
 			if (!empty($_GET['post'])) {
-				$post = get_post($_GET['post']);
-				$typenow = $post->post_type;
+				$typenow = get_post_type((int) $_GET['post']);
 			}
 			elseif (!empty($_GET['post_id'])) {
-				$post = get_post($_GET['post_id']);
-				$typenow = $post->post_type;
+				$typenow = get_post_type((int) $_GET['post_id']);
 			}
 		}
 
