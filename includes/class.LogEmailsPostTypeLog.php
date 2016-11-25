@@ -205,7 +205,7 @@ class LogEmailsPostTypeLog {
 				)
 			";
 			$like   = '%' . $wpdb->esc_like($query->query['s']) . '%';
-			$search = preg_replace("#(\({$wpdb->posts}.post_title LIKE [^)]+\))#", '$1' . $wpdb->prepare($sql, $like), $search);
+			$search = preg_replace("#\({$wpdb->posts}.post_title LIKE [^)]+\)\K#", $wpdb->prepare($sql, $like), $search);
 		}
 
 		return $search;
