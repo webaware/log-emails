@@ -188,7 +188,7 @@ class LogEmailsPostTypeLog {
 	}
 
 	/**
-	* add query condition for product range if selected
+	* add query condition for custom meta
 	* @param string $search the search string so far
 	* @param WP_Query $query
 	* @return string
