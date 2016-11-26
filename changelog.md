@@ -2,7 +2,7 @@
 
 ## Changelog
 
-### 1.2.1, soon...
+### 1.2.1, 2016-11-26
 
 * fixed: password obfuscation for the current locale supports non-ascii characters
 

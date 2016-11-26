@@ -7,7 +7,7 @@ Donate link: https://shop.webaware.com.au/donations/?donation_for=Log+Emails
 Tags: email log, logging, logs, email
 Requires at least: 4.0
 Tested up to: 4.7
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,15 +71,19 @@ Things I'd like to add to the plugin:
 
 == Upgrade Notice ==
 
-= 1.2.0 =
+= 1.2.1 =
 
-search supports email addresses; sort by subject, recipients; capture BuddyPress email recipients; removed Mine filter on list of email logs; password obfuscation for the current locale
+password obfuscation for the current locale supports non-ascii characters
 
 == Changelog ==
 
 ## Changelog
 
 The full changelog can be found [on GitHub](https://github.com/webaware/log-emails/blob/master/changelog.md). Recent entries:
+
+### 1.2.1, 2016-11-26
+
+* fixed: password obfuscation for the current locale supports non-ascii characters
 
 ### 1.2.0, 2016-11-21
 
