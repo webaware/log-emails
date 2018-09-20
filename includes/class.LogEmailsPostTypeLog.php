@@ -9,7 +9,8 @@ if (!defined('ABSPATH')) {
 */
 class LogEmailsPostTypeLog {
 
-	const POST_TYPE = 'log_emails_log';
+	const POST_TYPE		= 'log_emails_log';
+	const POST_STATUS	= 'log_emails_log';
 
 	/**
 	* hooks
@@ -170,6 +171,9 @@ class LogEmailsPostTypeLog {
 				$query->set('orderby',  'meta_value');
 				$query->set('meta_key', '_log_emails_log_to');
 			}
+
+			// make sure it picks up posts with the custom post status
+			$query->set('post_status', 'any');
 		}
 
 		return $query;
@@ -329,7 +333,7 @@ class LogEmailsPostTypeLog {
 		$sql = "
 			select ID
 			from {$wpdb->posts}
-			where ID < {$post->ID} and post_status='publish' and post_type = '" . self::POST_TYPE . "'
+			where ID < {$post->ID} and post_type = '" . self::POST_TYPE . "'
 			order by ID desc limit 1
 		";
 		$previous = $wpdb->get_var($sql);
@@ -337,7 +341,7 @@ class LogEmailsPostTypeLog {
 		$sql = "
 			select ID
 			from {$wpdb->posts}
-			where ID > {$post->ID} and post_status='publish' and post_type = '" . self::POST_TYPE . "'
+			where ID > {$post->ID} and post_type = '" . self::POST_TYPE . "'
 			order by ID asc limit 1
 		";
 		$next = $wpdb->get_var($sql);
@@ -479,7 +483,7 @@ class LogEmailsPostTypeLog {
 			'post_type'			=> self::POST_TYPE,
 			'post_content'		=> $message,
 			'post_title'		=> $subject,
-			'post_status'		=> 'publish',
+			'post_status'		=> self::POST_STATUS,
 			'comment_status'	=> 'closed',
 			'ping_status'		=> 'closed',
 		));

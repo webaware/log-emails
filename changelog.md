@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 1.3.0, soon...
+
+* fixed: recursive looping when saving a post triggers an email (e.g. Notification plugin)
+
 ### 1.2.1, 2016-11-26
 
 * fixed: password obfuscation for the current locale supports non-ascii characters
