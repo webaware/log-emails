@@ -34,7 +34,6 @@ class LogEmailsPlugin {
 	public function __construct() {
 		add_action('init', array($this, 'loadTranslations'), 0);		// must run before CPT are registered
 		add_action('init', array($this, 'init'));
-		add_action('plugins_loaded', array($this, 'cacheManagers'));
 		add_action('admin_init', array($this, 'registerSettings'));
 		add_action('admin_menu', array($this, 'adminMenu'));
 		add_filter('plugin_row_meta', array($this, 'addPluginDetailsLinks'), 10, 2);
@@ -67,19 +66,6 @@ class LogEmailsPlugin {
 		// make sure we have a schedule for purging old logs
 		if (!wp_next_scheduled(self::TASK_PURGE)) {
 			wp_schedule_event(time() + 10, 'daily', self::TASK_PURGE);
-		}
-	}
-
-	/**
-	* load cache managers if caching plugin found
-	*/
-	public function cacheManagers() {
-		if (defined('WP_CACHE') && WP_CACHE) {
-			// WP Super Cache
-			require LOG_EMAILS_PLUGIN_ROOT . 'includes/class.LogEmailsCache_WpSuperCache.php';
-			LogEmailsCache_WpSuperCache::softInstall();
-
-			// TODO: also handle W3 Total Cache if it needs similar treatment
 		}
 	}
 

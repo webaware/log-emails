@@ -468,8 +468,6 @@ class LogEmailsPostTypeLog {
 	* @return int post ID of new log
 	*/
 	public static function createLog($subject, $message, $alt_message, $fields) {
-		do_action('log_emails_cache_pause');
-
 		// prevent sanitising of email body and alt-body, so that we can access full email content in raw log view
 		remove_all_filters('pre_post_content');
 		remove_all_filters('content_save_pre');
@@ -501,8 +499,6 @@ class LogEmailsPostTypeLog {
 				add_post_meta($post_id, '_log_emails_log_altbody', $alt_message);
 			}
 		}
-
-		do_action('log_emails_cache_resume');
 	}
 
 	/**
@@ -522,13 +518,9 @@ class LogEmailsPostTypeLog {
 		$posts = $wpdb->get_col($sql);
 
 		if ($posts) {
-			do_action('log_emails_cache_pause');
-
 			foreach ($posts as $post_id) {
 				wp_delete_post($post_id, true);
 			}
-
-			do_action('log_emails_cache_resume');
 		}
 	}
 
