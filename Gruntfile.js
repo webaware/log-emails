@@ -9,7 +9,7 @@ module.exports = function (grunt) {
 			main: {
 				files: [
 					{
-						src: ["./**", "!./node_modules/**", "!./Gruntfile.js", "!./package.json"],
+						src: ["./**", "!./node_modules/**", "!./Gruntfile.js", "!./package*.json"],
 						dest: "dist/<%= pkg.name %>/"
 					}
 				]
@@ -30,23 +30,19 @@ module.exports = function (grunt) {
 			}
 		},
 
-		jshint: {
+		eslint: {
 			all: [
 				"Gruntfile.js",
 				"js/*.js",
 				"!js/*.min.js"
-			],
-			options: {
-				jshintrc: ".jshintrc",
-				force: true
-			}
+			]
 		},
 
 		sass: {
 			// @link https://github.com/gruntjs/grunt-contrib-sass#options
 			options: {
-				loadPath: "~/sass",
-				cacheLocation: "/tmp/.sass-cache"
+				implementation: require('node-sass'),	// FIXME: kludge to work around npm dependency issue; remove!
+				sourceMap: true
 			},
 			dev: {
 				options: {
@@ -72,15 +68,8 @@ module.exports = function (grunt) {
 				// @link https://github.com/postcss/autoprefixer#grunt
 				map: true,
 				processors: [
-					require("autoprefixer")({
-						// @link https://github.com/ai/browserslist#queries
-						browsers: [
-							"last 2 versions",
-							"ie 11",
-							"ios >= 8",
-							"android >= 4"
-						]
-					})
+					require("autoprefixer")(),
+					require("postcss-discard-duplicates")()
 				]
 			},
 			dist: {
@@ -93,9 +82,9 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks("grunt-contrib-compress");
 	grunt.loadNpmTasks("grunt-contrib-copy");
-	grunt.loadNpmTasks("grunt-contrib-jshint");
-	grunt.loadNpmTasks("grunt-contrib-sass");
+	grunt.loadNpmTasks("grunt-eslint");
 	grunt.loadNpmTasks("grunt-postcss");
+	grunt.loadNpmTasks("grunt-sass");
 
 	grunt.registerTask("release", ["clean","copy","compress"]);
 	grunt.registerTask("scss", ["sass","postcss"]);
