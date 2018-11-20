@@ -1,0 +1,15 @@
+extends: stylelint-config-standard
+
+plugins:
+  - stylelint-scss
+
+# @link https://stylelint.io/user-guide/rules/
+# @link https://github.com/kristerkari/stylelint-scss
+rules:
+  at-rule-no-unknown: ~   # doesn't work with SCSS; use the SCSS rule instead (below)
+  indentation: tab
+  no-descending-specificity: ~
+  rule-empty-line-before: ~
+  selector-list-comma-newline-after: ~
+  # from stylelint-scss
+  scss/at-rule-no-unknown: true

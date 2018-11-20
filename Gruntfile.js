@@ -9,7 +9,17 @@ module.exports = function (grunt) {
 			main: {
 				files: [
 					{
-						src: ["./**", "!./node_modules/**", "!./Gruntfile.js", "!./package*.json"],
+						src: [
+							"./**",
+							"!./es6/**",
+							"!./node_modules/**",
+							"!./scss/**",
+							"!./vendor/**",
+							"!./composer.*",
+							"!./Gruntfile.js",
+							"!./package*.json",
+							"!./phpcs*.xml",
+						],
 						dest: "dist/<%= pkg.name %>/"
 					}
 				]
@@ -25,6 +35,7 @@ module.exports = function (grunt) {
 				files: [{
 					expand: true,
 					cwd: "./dist/",
+					date: new Date(),
 					src: [ "<%= pkg.name %>/**" ]
 				}]
 			}
@@ -33,24 +44,34 @@ module.exports = function (grunt) {
 		eslint: {
 			all: [
 				"Gruntfile.js",
-				"js/*.js",
-				"!js/*.min.js"
+				"es6/*.js"
+			]
+		},
+
+		stylelint: {
+			// @link https://stylelint.io/user-guide/configuration/
+			options: {
+				configFile: ".stylelintrc.yml",
+				failOnError: true,
+			},
+			src: [
+				"scss/*.scss",
 			]
 		},
 
 		sass: {
 			// @link https://github.com/gruntjs/grunt-contrib-sass#options
 			options: {
-				implementation: require('node-sass'),	// FIXME: kludge to work around npm dependency issue; remove!
-				sourceMap: true
+				implementation: require('node-sass')
 			},
 			dev: {
 				options: {
 					style: "expanded",
+					sourceMap: true,
 					lineNumbers: true
 				},
 				files: {
-					"css/admin.dev.css" : "css/admin.scss"
+					"css/admin.dev.css" : "scss/admin.scss"
 				}
 			},
 			dist: {
@@ -58,22 +79,37 @@ module.exports = function (grunt) {
 					style: "compressed"
 				},
 				files: {
-					"css/admin.min.css" : "css/admin.scss"
+					"css/admin.min.css" : "scss/admin.scss"
 				}
 			}
 		},
 
 		postcss: {
-			options: {
-				// @link https://github.com/postcss/autoprefixer#grunt
-				map: true,
-				processors: [
-					require("autoprefixer")(),
-					require("postcss-discard-duplicates")()
-				]
+			// @link https://github.com/postcss/autoprefixer#grunt
+			dev: {
+				options: {
+					map: true,
+					processors: [
+						require("autoprefixer")({
+							grid: true
+						}),
+						require("postcss-discard-duplicates")()
+					]
+				},
+				src: "css/*.dev.css"
 			},
 			dist: {
-				src: "css/*.css"
+				options: {
+					map: false,
+					processors: [
+						require("autoprefixer")({
+							grid: true
+						}),
+						require("postcss-discard-duplicates")(),
+						require("cssnano")()
+					]
+				},
+				src: "css/*.min.css"
 			}
 		}
 
@@ -85,8 +121,9 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-eslint");
 	grunt.loadNpmTasks("grunt-postcss");
 	grunt.loadNpmTasks("grunt-sass");
+	grunt.loadNpmTasks("grunt-stylelint");
 
 	grunt.registerTask("release", ["clean","copy","compress"]);
-	grunt.registerTask("scss", ["sass","postcss"]);
+	grunt.registerTask("scss", ["stylelint","sass","postcss"]);
 
 };
