@@ -1,5 +1,4 @@
 .log-emails-log-details {
-
 	width: 96%;
 
 	> tbody > tr > th {
@@ -27,13 +26,11 @@ th.column-_log_emails_warnings {
 td.column-_log_emails_warnings {
 
 	p {
-		color: #A00;
+		color: #a00;
 	}
-
 }
 
 .log-emails-next-prev {
-
 	position: relative;
 	width: 96%;
 	height: 1em;
@@ -43,7 +40,6 @@ td.column-_log_emails_warnings {
 		position: absolute;
 		text-decoration: none;
 	}
-
 }
 
 .log-emails-link-prev {
@@ -75,11 +71,8 @@ td.column-_log_emails_warnings {
 			br {
 				display: none;
 			}
-
 		}
-
 	}
-
 }
 
 /* provide support for older WP with no dashicons */
@@ -100,18 +93,16 @@ td.column-_log_emails_warnings {
 			text-align: center;
 		}
 
-		.dashicons-arrow-left-alt2:before {
+		.dashicons-arrow-left-alt2::before {
 			content: "<";
 		}
 
-		.dashicons-arrow-right-alt2:before {
+		.dashicons-arrow-right-alt2::before {
 			content: ">";
 		}
 
-		.dashicons-list-view:before {
+		.dashicons-list-view::before {
 			content: "=";
 		}
-
 	}
-
 }
