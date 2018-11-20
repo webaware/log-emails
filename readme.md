@@ -2,7 +2,6 @@
 
 Log emails to the database, to better diagnose email problems
 
-* [Home](https://shop.webaware.com.au/downloads/log-emails/)
 * [GitHub](https://github.com/webaware/log-emails)
 * [Readme](https://github.com/webaware/log-emails/blob/master/readme.txt)
 * [Changelog](https://github.com/webaware/log-emails/blob/master/changelog.md)

@@ -1,14 +1,14 @@
 # Log Emails
 Contributors: webaware
 Plugin Name: Log Emails
-Plugin URI: https://shop.webaware.com.au/downloads/log-emails/
+Plugin URI: https://wordpress.org/plugins/log-emails/
 Author URI: https://shop.webaware.com.au/
 Donate link: https://shop.webaware.com.au/donations/?donation_for=Log+Emails
 Tags: email log, logging, logs, email
 Requires at least: 4.0
 Tested up to: 5.0
 Requires PHP: 5.3
-Stable tag: 1.2.1
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,16 +71,9 @@ fixed recursive looping when saving a post triggers an email on publish state
 
 The full changelog can be found [on GitHub](https://github.com/webaware/log-emails/blob/master/changelog.md). Recent entries:
 
-### 1.2.1, 2016-11-26
+### 1.3.0
 
-* fixed: password obfuscation for the current locale supports non-ascii characters
+Released 2018-11-20
 
-### 1.2.0, 2016-11-21
-
-* fixed: capture BuddyPress email recipients
-* fixed: remove Mine filter on list of email logs
-* fixed: stop some post admin plugins messing with the list of email logs
-* added: search also looks in From, To, CC, BCC email addresses
-* added: sort by subject, recipients
-* changed: password obfuscation also for the current locale
-* changed: menu item names are now Log Emails, the same as the plugin name
+* fixed: recursive looping when saving a post triggers an email on publish state (e.g. Notification plugin)
+* tested: WordPress 5.0

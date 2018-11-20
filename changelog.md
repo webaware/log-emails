@@ -2,9 +2,10 @@
 
 ## Changelog
 
-### 1.3.0, soon...
+### 1.3.0, 2018-11-20
 
-* fixed: recursive looping when saving a post triggers an email (e.g. Notification plugin)
+* fixed: recursive looping when saving a post triggers an email on publish state (e.g. Notification plugin)
+* tested: WordPress 5.0
 
 ### 1.2.1, 2016-11-26
 
