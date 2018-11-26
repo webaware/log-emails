@@ -8,7 +8,7 @@ Tags: email log, logging, logs, email
 Requires at least: 4.0
 Tested up to: 5.0
 Requires PHP: 5.3
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,15 +28,11 @@ Many thanks to the generous efforts of our translators:
 
 * Czech (cs-CZ) -- [Rudolf Klusal](http://www.klusik.cz/)
 * English (en_CA) -- [the English (Canadian) translation team](https://translate.wordpress.org/locale/en-ca/default/wp-plugins/log-emails)
+* English (en_GB) -- [the English (British) translation team](https://translate.wordpress.org/locale/en-gb/default/wp-plugins/log-emails)
 * French (fr-FR) -- [Hugo Catellier](http://www.eticweb.ca/)
 * Korean (ko_KR) -- [the Korean translation team](https://translate.wordpress.org/locale/ko/default/wp-plugins/log-emails)
 
 If you'd like to help out by translating this plugin, please [sign up for an account and dig in](https://translate.wordpress.org/projects/wp-plugins/log-emails).
-
-### Contributions
-
-* [Translate into your preferred language](https://translate.wordpress.org/projects/wp-plugins/log-emails)
-* [Fork me on GitHub](https://github.com/webaware/log-emails)
 
 ## Installation
 
@@ -63,13 +59,19 @@ Logging emails writes to the database. The plugin uses a custom post type, so lo
 
 ## Upgrade Notice
 
-### 1.3.0
+### 1.3.1
 
-fixed recursive looping when saving a post triggers an email on publish state
+fixed log date showing as "Last modified"
 
 ## Changelog
 
 The full changelog can be found [on GitHub](https://github.com/webaware/log-emails/blob/master/changelog.md). Recent entries:
+
+### 1.3.1
+
+Released 2018-11-26
+
+* fixed: log date shows as "Last modified"
 
 ### 1.3.0
 
