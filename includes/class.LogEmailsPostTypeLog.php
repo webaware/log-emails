@@ -49,6 +49,7 @@ class LogEmailsPostTypeLog {
 			add_action('manage_edit-' . self::POST_TYPE . '_sortable_columns', array($this, 'adminSortableColumns'));
 			add_filter('manage_' . self::POST_TYPE . '_posts_columns', array($this, 'adminManageColumns'), 100);
 			add_action('manage_' . self::POST_TYPE . '_posts_custom_column', array($this, 'adminManageCustomColumn'), 10, 2);
+			add_filter('post_date_column_status', '__return_empty_string');
 			add_filter('post_row_actions', array($this, 'postRowActions'), 10, 2);
 			add_filter('gettext', array($this, 'removePublished'), 10, 3);
 			add_action('admin_print_footer_scripts', array($this, 'adminPrintFooterScripts'));

@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 1.3.1, 2018-11-26
+
+* fixed: log date shows as "Last modified"
+
 ### 1.3.0, 2018-11-20
 
 * fixed: recursive looping when saving a post triggers an email on publish state (e.g. Notification plugin)
