@@ -3,44 +3,6 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON("package.json"),
 
-		clean: [ "dist/**" ],
-
-		copy: {
-			main: {
-				files: [
-					{
-						src: [
-							"./**",
-							"!./es6/**",
-							"!./node_modules/**",
-							"!./scss/**",
-							"!./vendor/**",
-							"!./composer.*",
-							"!./Gruntfile.js",
-							"!./package*.json",
-							"!./phpcs*.xml",
-						],
-						dest: "dist/<%= pkg.name %>/"
-					}
-				]
-			}
-		},
-
-		compress: {
-			options: {
-				archive: "./dist/<%= pkg.name %>-<%= pkg.version %>.zip",
-				mode: "zip"
-			},
-			all: {
-				files: [{
-					expand: true,
-					cwd: "./dist/",
-					date: new Date(),
-					src: [ "<%= pkg.name %>/**" ]
-				}]
-			}
-		},
-
 		eslint: {
 			all: [
 				"Gruntfile.js",
@@ -62,7 +24,7 @@ module.exports = function (grunt) {
 		sass: {
 			// @link https://github.com/gruntjs/grunt-contrib-sass#options
 			options: {
-				implementation: require('node-sass')
+				implementation: require('sass')
 			},
 			dev: {
 				options: {
@@ -111,19 +73,37 @@ module.exports = function (grunt) {
 				},
 				src: "css/*.min.css"
 			}
+		},
+
+		shell: {
+			// @link https://github.com/sindresorhus/grunt-shell
+			dist: {
+				command: [
+					"rm -rf .dist",
+					"mkdir .dist",
+					"git archive HEAD --prefix=<%= pkg.name %>/ --format=zip -9 -o .dist/<%= pkg.name %>-<%= pkg.version %>.zip",
+				].join("&&")
+			},
+			wpsvn: {
+				command: [
+					"svn up .wordpress.org",
+					"rm -rf .wordpress.org/trunk",
+					"mkdir .wordpress.org/trunk",
+					"git archive HEAD --format=tar | tar x --directory=.wordpress.org/trunk",
+				].join("&&")
+			}
 		}
 
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks("grunt-contrib-compress");
-	grunt.loadNpmTasks("grunt-contrib-copy");
 	grunt.loadNpmTasks("grunt-eslint");
 	grunt.loadNpmTasks("grunt-postcss");
 	grunt.loadNpmTasks("grunt-sass");
+	grunt.loadNpmTasks("grunt-shell");
 	grunt.loadNpmTasks("grunt-stylelint");
 
-	grunt.registerTask("release", ["clean","copy","compress"]);
+	grunt.registerTask("release", ["shell:dist"]);
 	grunt.registerTask("scss", ["stylelint","sass","postcss"]);
+	grunt.registerTask("wpsvn", ["shell:wpsvn"]);
 
 };

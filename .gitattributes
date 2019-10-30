@@ -1,0 +1,13 @@
+# directories
+/es6				export-ignore
+/scss				export-ignore
+
+# files
+/.eslintrc			export-ignore
+/.gitattributes		export-ignore
+/.gitignore			export-ignore
+/.stylelintrc.yml	export-ignore
+/composer.*			export-ignore
+/Gruntfile.js		export-ignore
+/package*.json		export-ignore
+/phpcs*.xml			export-ignore
