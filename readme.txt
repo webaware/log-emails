@@ -6,7 +6,7 @@ Author URI: https://shop.webaware.com.au/
 Donate link: https://shop.webaware.com.au/donations/?donation_for=Log+Emails
 Tags: email log, logging, logs, email
 Requires at least: 4.0
-Tested up to: 5.0
+Tested up to: 5.3
 Requires PHP: 5.3
 Stable tag: 1.3.1
 License: GPLv2 or later
