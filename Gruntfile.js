@@ -1,5 +1,9 @@
 module.exports = function (grunt) {
 
+	const autoprefixer					= require("autoprefixer");
+	const clean							= require("postcss-clean");
+	const sass							= require("sass");
+
 	grunt.initConfig({
 		pkg: grunt.file.readJSON("package.json"),
 
@@ -24,22 +28,16 @@ module.exports = function (grunt) {
 		sass: {
 			// @link https://github.com/gruntjs/grunt-contrib-sass#options
 			options: {
-				implementation: require('sass')
+				implementation: sass,
+				outputStyle: "expanded",
+				sourceMap: false,
 			},
 			dev: {
-				options: {
-					style: "expanded",
-					sourceMap: true,
-					lineNumbers: true
-				},
 				files: {
 					"css/admin.dev.css" : "scss/admin.scss"
 				}
 			},
 			dist: {
-				options: {
-					style: "compressed"
-				},
 				files: {
 					"css/admin.min.css" : "scss/admin.scss"
 				}
@@ -48,14 +46,22 @@ module.exports = function (grunt) {
 
 		postcss: {
 			// @link https://github.com/postcss/autoprefixer#grunt
+			// @link https://github.com/jakubpawlowicz/clean-css
 			dev: {
 				options: {
-					map: true,
+					map: false,
 					processors: [
-						require("autoprefixer")({
-							grid: true
+						autoprefixer(),
+						clean({
+							format: "beautify",
+							level: {
+								1: {
+									removeQuotes: false,
+								},
+								2: {
+								}
+							},
 						}),
-						require("postcss-discard-duplicates")()
 					]
 				},
 				src: "css/*.dev.css"
@@ -64,11 +70,17 @@ module.exports = function (grunt) {
 				options: {
 					map: false,
 					processors: [
-						require("autoprefixer")({
-							grid: true
+						autoprefixer(),
+						clean({
+							level: {
+								1: {
+									specialComments: 0,
+									removeQuotes: false,
+								},
+								2: {
+								}
+							},
 						}),
-						require("postcss-discard-duplicates")(),
-						require("cssnano")()
 					]
 				},
 				src: "css/*.min.css"
@@ -97,7 +109,7 @@ module.exports = function (grunt) {
 	});
 
 	grunt.loadNpmTasks("grunt-eslint");
-	grunt.loadNpmTasks("grunt-postcss");
+	grunt.loadNpmTasks("@lodder/grunt-postcss");
 	grunt.loadNpmTasks("grunt-sass");
 	grunt.loadNpmTasks("grunt-shell");
 	grunt.loadNpmTasks("grunt-stylelint");
