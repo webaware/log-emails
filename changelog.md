@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 1.4.0, 2020-10-13
+
+* changed: requires PHP 5.6 minimum (recommend PHP 7.3+)
+
 ### 1.3.1, 2018-11-26
 
 * fixed: log date shows as "Last modified"
