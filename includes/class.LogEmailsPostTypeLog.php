@@ -26,21 +26,9 @@ class LogEmailsPostTypeLog {
 	* admin_init action
 	*/
 	public function init() {
-		global $typenow;
-
-		if (empty($typenow)) {
-			// try to pick it up from the query string
-			if (!empty($_GET['post'])) {
-				$typenow = get_post_type((int) $_GET['post']);
-			}
-			elseif (!empty($_GET['post_id'])) {
-				$typenow = get_post_type((int) $_GET['post_id']);
-			}
-		}
-
 		add_action('admin_action_log_emails_view', array($this, 'viewLog'));
 
-		if ($typenow === self::POST_TYPE) {
+		if (self::is_admin_post_type()) {
 			add_filter('display_post_states', '__return_false');
 			add_filter('bulk_actions-edit-' . self::POST_TYPE, array($this, 'adminBulkActionsEdit'));
 			add_filter('bulk_post_updated_messages', array($this, 'adminBulkPostUpdatedMessages'), 10, 2);
@@ -523,6 +511,28 @@ class LogEmailsPostTypeLog {
 				wp_delete_post($post_id, true);
 			}
 		}
+	}
+
+	/**
+	* check for admin post type match to our post type
+	* @return bool
+	*/
+	private static function is_admin_post_type() {
+		global $typenow;
+
+		$type = $typenow;
+
+		if (empty($type)) {
+			// try to pick it up from the query string
+			if (!empty($_GET['post'])) {
+				$type = get_post_type((int) $_GET['post']);
+			}
+			elseif (!empty($_GET['post_id'])) {
+				$type = get_post_type((int) $_GET['post_id']);
+			}
+		}
+
+		return $type === self::POST_TYPE;
 	}
 
 }
