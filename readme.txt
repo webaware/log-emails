@@ -8,7 +8,7 @@ Tags: email log, logging, logs, email
 Requires at least: 4.0
 Tested up to: 5.3
 Requires PHP: 5.6
-Stable tag: 1.3.1
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,23 +59,17 @@ Logging emails writes to the database. The plugin uses a custom post type, so lo
 
 ## Upgrade Notice
 
-### 1.3.1
+### 1.4.0
 
-fixed log date showing as "Last modified"
+requires PHP 5.6 minimum (recommend PHP 7.3+); fixes conflict with Event Espresso
 
 ## Changelog
 
 The full changelog can be found [on GitHub](https://github.com/webaware/log-emails/blob/master/changelog.md). Recent entries:
 
-### 1.3.1
+### 1.4.0
 
-Released 2018-11-26
+Released 2020-10-13
 
-* fixed: log date shows as "Last modified"
-
-### 1.3.0
-
-Released 2018-11-20
-
-* fixed: recursive looping when saving a post triggers an email on publish state (e.g. Notification plugin)
-* tested: WordPress 5.0
+* changed: requires PHP 5.6 minimum (recommend PHP 7.3+)
+* fixed: overwriting `$typenow` breaks some other plugins (e.g. Event Espresso)
