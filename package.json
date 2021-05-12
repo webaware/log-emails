@@ -12,7 +12,7 @@
     "grunt-sass": "^3.1.0",
     "grunt-shell": "^3.0.1",
     "grunt-stylelint": "^0.15.0",
-    "postcss": "^8.1.1",
+    "postcss": "^8.2.10",
     "postcss-clean": "^1.1.0",
     "sass": "^1.27.0",
     "stylelint": "^13.7.2",
