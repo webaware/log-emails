@@ -385,7 +385,7 @@ class LogEmailsPostTypeLog {
 	public function adminEnqueueScripts() {
 		$dev = SCRIPT_DEBUG ? '.dev' : '.min';
 		$ver = SCRIPT_DEBUG ? time() : LOG_EMAILS_PLUGIN_VERSION;
-		wp_enqueue_style('log-emails-admin', plugins_url("css/admin$dev.css", LOG_EMAILS_PLUGIN_FILE), false, $ver);
+		wp_enqueue_style('log-emails-admin', plugins_url("static/css/admin$dev.css", LOG_EMAILS_PLUGIN_FILE), false, $ver);
 	}
 
 	/**
