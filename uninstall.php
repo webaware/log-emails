@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 
 // must be called from WordPress as uninstall action
 if ( !defined( 'WP_UNINSTALL_PLUGIN' ) )
-    exit();
+	exit();
 
 // remove all options
 delete_option('log_emails_limit_days');

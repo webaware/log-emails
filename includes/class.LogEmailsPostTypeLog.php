@@ -501,7 +501,7 @@ class LogEmailsPostTypeLog {
 
 		if ($limit_days > 0) {
 			$cutoff = date_create("-$limit_days days");
-			$sql .= $wpdb->prepare(" and post_date_gmt < %s", $cutoff->format('Y-m-d'));
+			$sql .= $wpdb->prepare(' and post_date_gmt < %s', $cutoff->format('Y-m-d'));
 		}
 
 		$posts = $wpdb->get_col($sql);
