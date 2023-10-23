@@ -5,6 +5,7 @@
 ### 1.5.0, soon...
 
 * changed: requires PHP 7.4 minimum (recommend PHP 8.1+)
+* fixed: viewing an email log triggered warnings in PHP 8.1
 
 ### 1.4.0, 2020-10-13
 

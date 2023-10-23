@@ -297,6 +297,7 @@ class LogEmailsPostTypeLog {
 	*/
 	public function viewLog() {
 		global $wpdb;
+		global $title;
 
 		$post_id = empty($_GET['post_id']) ? 0 : absint($_GET['post_id']);
 		$post = $post_id ? get_post($post_id) : false;
@@ -348,6 +349,7 @@ class LogEmailsPostTypeLog {
 		$warnings = $this->getWarnings($post);
 
 		// show the view
+		$title = __('Log Emails', 'log-emails');
 		require_once ABSPATH . 'wp-admin/admin-header.php';
 		require LOG_EMAILS_PLUGIN_ROOT . 'views/log-detail.php';
 		require ABSPATH . 'wp-admin/admin-footer.php';
