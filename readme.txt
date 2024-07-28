@@ -59,7 +59,7 @@ Logging emails writes to the database. The plugin uses a custom post type, so lo
 
 ## Upgrade Notice
 
-### 1.4.0
+### 1.5.0
 
 requires PHP 7.4 minimum (recommend PHP 8.2+); fixed warnings in PHP 8.1+; added Settings, Logs links to Plugins page listing
 
