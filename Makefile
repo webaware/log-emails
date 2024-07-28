@@ -35,12 +35,13 @@ wpsvn: lint
 CSS_SRC_DIR		:= source/scss
 CSS_TGT_DIR		:= static/css
 CSS_SRCS		:= $(shell find source/scss -maxdepth 1 -name '[a-z]*.scss' -print)
+CSS_DEPS		:= $(shell find source/scss -maxdepth 1 -name '*.scss' -print)
 CSS_TGTS		:= $(CSS_SRCS:$(CSS_SRC_DIR)/%.scss=$(CSS_TGT_DIR)/%.css)
 CSS_LINT		:= npx stylelint --config .stylelintrc.yml "$(CSS_SRC_DIR)/**/*.scss"
 
 css: .make-flag-css
 
-.make-flag-css: $(CSS_SRCS)
+.make-flag-css: $(CSS_DEPS)
 	$(CSS_LINT)
 	sass $(foreach source,$(CSS_SRCS),$(source):$(source:$(CSS_SRC_DIR)/%.scss=$(CSS_TGT_DIR)/%.css)) --style=expanded --no-charset
 	npx postcss $(CSS_TGTS) --use autoprefixer --replace --map
@@ -54,7 +55,8 @@ lint: lint-php lint-css
 
 lint-php:
 	@echo PHP lint...
-	@$(FIND_PHP) -exec php7.3 -l '{}' \; >/dev/null
+	@$(FIND_PHP) -exec php7.4 -l '{}' \; >/dev/null
+	@$(FIND_PHP) -exec php8.3 -l '{}' \; >/dev/null
 	@vendor/bin/phpcs -ps
 	@vendor/bin/phpcs -ps --standard=phpcs-5.2.xml
 
