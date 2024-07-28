@@ -6,9 +6,9 @@ Author URI: https://shop.webaware.com.au/
 Donate link: https://shop.webaware.com.au/donations/?donation_for=Log+Emails
 Tags: email log, logging, logs, email
 Requires at least: 4.0
-Tested up to: 5.5
+Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.4.0
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,15 +61,16 @@ Logging emails writes to the database. The plugin uses a custom post type, so lo
 
 ### 1.4.0
 
-requires PHP 5.6 minimum (recommend PHP 7.3+); fixes conflict with Event Espresso
+requires PHP 7.4 minimum (recommend PHP 8.2+); fixed warnings in PHP 8.1+; added Settings, Logs links to Plugins page listing
 
 ## Changelog
 
 The full changelog can be found [on GitHub](https://github.com/webaware/log-emails/blob/master/changelog.md). Recent entries:
 
-### 1.4.0
+### 1.5.0
 
-Released 2020-10-13
+Released 2024-07-28
 
-* changed: requires PHP 5.6 minimum (recommend PHP 7.3+)
-* fixed: overwriting `$typenow` breaks some other plugins (e.g. Event Espresso)
+* changed: requires PHP 7.4 minimum (recommend PHP 8.2+)
+* fixed: viewing an email log triggered warnings in PHP 8.1+
+* added: Settings, Logs links to Plugins page listing

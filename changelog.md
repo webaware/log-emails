@@ -2,11 +2,11 @@
 
 ## Changelog
 
-### 1.5.0, soon...
+### 1.5.0, 2024-07-28
 
-* changed: requires PHP 7.4 minimum (recommend PHP 8.1+)
-* fixed: viewing an email log triggered warnings in PHP 8.1
-* added: Settings, Logs links from Plugins page listing
+* changed: requires PHP 7.4 minimum (recommend PHP 8.2+)
+* fixed: viewing an email log triggered warnings in PHP 8.1+
+* added: Settings, Logs links to Plugins page listing
 
 ### 1.4.0, 2020-10-13
 
