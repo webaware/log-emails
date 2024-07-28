@@ -36,6 +36,7 @@ class LogEmailsPlugin {
 		add_action('init', array($this, 'init'));
 		add_action('admin_init', array($this, 'registerSettings'));
 		add_action('admin_menu', array($this, 'adminMenu'));
+		add_action('plugin_action_links_' . LOG_EMAILS_PLUGIN_NAME, [$this, 'pluginActionLinks']);
 		add_filter('plugin_row_meta', array($this, 'addPluginDetailsLinks'), 10, 2);
 		add_action(self::TASK_PURGE, array($this, 'purge'));
 
@@ -193,6 +194,25 @@ class LogEmailsPlugin {
 	public function deactivate() {
 		// remove scheduled tasks
 		wp_clear_scheduled_hook(self::TASK_PURGE);
+	}
+
+	/**
+	 * add plugin action links on plugins page
+	 */
+	public function pluginActionLinks(array $links) : array {
+		if (current_user_can('manage_options')) {
+			// add logs link
+			$url = admin_url('edit.php?post_type=log_emails_log');
+			$link = sprintf('<a href="%s">%s</a>', esc_url($url), esc_html_x('Logs', 'plugin details links', 'log-emails'));
+			array_unshift($links, $link);
+
+			// add settings link
+			$url = admin_url('options-general.php?page=log-emails');
+			$link = sprintf('<a href="%s">%s</a>', esc_url($url), esc_html_x('Settings', 'plugin details links', 'log-emails'));
+			array_unshift($links, $link);
+		}
+
+		return $links;
 	}
 
 	/**

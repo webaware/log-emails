@@ -6,6 +6,7 @@
 
 * changed: requires PHP 7.4 minimum (recommend PHP 8.1+)
 * fixed: viewing an email log triggered warnings in PHP 8.1
+* added: Settings, Logs links from Plugins page listing
 
 ### 1.4.0, 2020-10-13
 
