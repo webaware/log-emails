@@ -55,7 +55,7 @@ class LogEmailsPostTypeLog {
 	public function register() {
 		// register the post type
 		register_post_type(self::POST_TYPE, array(
-			'labels' => array (
+			'labels' => array(
 				'name'					=> __('Email Logs', 'log-emails'),
 				'singular_name'			=> __('Email Log', 'log-emails'),
 				'menu_name'				=> __('Log Emails', 'log-emails'),
@@ -76,7 +76,7 @@ class LogEmailsPostTypeLog {
 			'rewrite'					=> false,
 			'query_var'					=> false,
 			'can_export'				=> false,
-			'capabilities'				=> array (
+			'capabilities'				=> array(
 				'create_posts'			=> 'do_not_allow',
 				'edit_post'				=> 'activate_plugins',
 				'edit_posts'			=> 'activate_plugins',
