@@ -18,7 +18,6 @@
 	<rule ref="PHPCompatibility" />
 	<rule ref="Modernize" />
 
-	<rule ref="Generic.Debug.ClosureLinter" />
 	<rule ref="Generic.Files.LineEndings" />
 	<rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie" />
 	<!-- <rule ref="Generic.Metrics.CyclomaticComplexity" /> -->
@@ -81,6 +80,7 @@
 	<rule ref="Universal.Operators.DisallowLogicalAndOr" />
 	<rule ref="Universal.Operators.StrictComparisons" />
 	<rule ref="Universal.PHP.LowercasePHPTag" />
+	<rule ref="Universal.PHP.NoFQNTrueFalseNull" />
 	<rule ref="Universal.PHP.OneStatementInShortEchoTag" />
 	<rule ref="Universal.UseStatements.DisallowMixedGroupUse" />
 	<rule ref="Universal.UseStatements.LowercaseFunctionConst" />
