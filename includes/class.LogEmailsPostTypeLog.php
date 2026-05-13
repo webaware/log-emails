@@ -275,7 +275,7 @@ class LogEmailsPostTypeLog {
 	* customise the table list row actions
 	* @param array $actions
 	* @param WP_Post $post
-	* @return return
+	* @return array
 	*/
 	public function postRowActions($actions, $post) {
 		$actions = array();
@@ -455,6 +455,7 @@ class LogEmailsPostTypeLog {
 	* create a new email log
 	* @param string $subject
 	* @param string $message
+	* @param string $alt_message
 	* @param array $fields
 	* @return int post ID of new log
 	*/

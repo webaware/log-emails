@@ -9,6 +9,9 @@ if (!defined('ABSPATH')) {
 */
 class LogEmailsPlugin {
 
+	/**
+	 * @var array
+	 */
 	protected $args = false;				// arguments to wp_mail() function, recorded from filter wp_mail
 
 	// scheduled tasks
@@ -217,6 +220,8 @@ class LogEmailsPlugin {
 
 	/**
 	* action hook for adding plugin details links
+	* @param array $links
+	* @param string $file
 	*/
 	public function addPluginDetailsLinks($links, $file) {
 		if ($file === LOG_EMAILS_PLUGIN_NAME) {
@@ -264,6 +269,7 @@ class LogEmailsPlugin {
 
 	/**
 	* show text field
+	* @param array $args
 	*/
 	public function settingsFieldText($args) {
 		require LOG_EMAILS_PLUGIN_ROOT . 'views/settings-field-text.php';
