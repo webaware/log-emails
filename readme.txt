@@ -5,10 +5,10 @@ Plugin URI: https://wordpress.org/plugins/log-emails/
 Author URI: https://shop.webaware.com.au/
 Donate link: https://shop.webaware.com.au/donations/?donation_for=Log+Emails
 Tags: email log, logging, logs, email
-Requires at least: 4.0
-Tested up to: 6.6
+Requires at least: 4.6
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.5.0
+Stable tag: 1.6.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,10 +27,11 @@ Logs are automatically purged after a defined period, set through a settings pag
 Many thanks to the generous efforts of our translators:
 
 * Czech (cs-CZ) -- [Rudolf Klusal](http://www.klusik.cz/)
-* English (en_CA) -- [the English (Canadian) translation team](https://translate.wordpress.org/locale/en-ca/default/wp-plugins/log-emails)
-* English (en_GB) -- [the English (British) translation team](https://translate.wordpress.org/locale/en-gb/default/wp-plugins/log-emails)
+* English (en-CA) -- [the English (Canadian) translation team](https://translate.wordpress.org/locale/en-ca/default/wp-plugins/log-emails)
+* English (en-GB) -- [the English (British) translation team](https://translate.wordpress.org/locale/en-gb/default/wp-plugins/log-emails)
 * French (fr-FR) -- [Hugo Catellier](http://www.eticweb.ca/)
-* Korean (ko_KR) -- [the Korean translation team](https://translate.wordpress.org/locale/ko/default/wp-plugins/log-emails)
+* Korean (ko-KR) -- [the Korean translation team](https://translate.wordpress.org/locale/ko/default/wp-plugins/log-emails)
+* Russian (ru) -- [the Russian translation team](https://translate.wordpress.org/locale/ru/default/wp-plugins/log-emails)
 
 If you'd like to help out by translating this plugin, please [sign up for an account and dig in](https://translate.wordpress.org/projects/wp-plugins/log-emails).
 
@@ -59,18 +60,20 @@ Logging emails writes to the database. The plugin uses a custom post type, so lo
 
 ## Upgrade Notice
 
-### 1.5.0
+### 1.6.0
 
-requires PHP 7.4 minimum (recommend PHP 8.2+); fixed warnings in PHP 8.1+; added Settings, Logs links to Plugins page listing
+only record the From name when it isn't empty; purging works even when settings not saved; log Gravity Forms multipart emails as HTML emails; add Sender, CC, BCC columns to logs list; record Reply-To addresses and show on detailed log
 
 ## Changelog
 
 The full changelog can be found [on GitHub](https://github.com/webaware/log-emails/blob/master/changelog.md). Recent entries:
 
-### 1.5.0
+### 1.6.0
 
-Released 2024-07-28
+Released 2026-05-14
 
-* changed: requires PHP 7.4 minimum (recommend PHP 8.2+)
-* fixed: viewing an email log triggered warnings in PHP 8.1+
-* added: Settings, Logs links to Plugins page listing
+* changed: only record the From name as part of the From field when it isn't empty
+* fixed: purge of old logs will run with default 30 days limit if setting has not been saved
+* fixed: log Gravity Forms multipart emails as HTML emails
+* added: Sender, CC, BCC columns in list of email logs
+* added: record Reply-To addresses and show on detailed log
