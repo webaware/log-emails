@@ -37,7 +37,6 @@ class LogEmailsPlugin {
 	* hook WordPress to handle script and style fixes
 	*/
 	public function __construct() {
-		add_action('init', array($this, 'loadTranslations'), 0);		// must run before CPT are registered
 		add_action('init', array($this, 'init'));
 		add_action('admin_init', array($this, 'registerSettings'));
 		add_action('admin_menu', array($this, 'adminMenu'));
@@ -55,14 +54,6 @@ class LogEmailsPlugin {
 		// load custom post type handler
 		require LOG_EMAILS_PLUGIN_ROOT . 'includes/class.LogEmailsPostTypeLog.php';
 		new LogEmailsPostTypeLog();
-	}
-
-	/**
-	* load translations
-	* NB: must load before CPT are registered so that strings are properly translated
-	*/
-	public function loadTranslations() {
-		load_plugin_textdomain('log-emails', false, basename(dirname(LOG_EMAILS_PLUGIN_FILE)) . '/languages/');
 	}
 
 	/**
