@@ -67,6 +67,13 @@ if (!defined('ABSPATH')) {
 		</tr>
 		<?php endif; ?>
 
+		<?php if ($replyto = get_post_meta($post->ID, '_log_emails_log_replyto', true)): ?>
+		<tr>
+			<th scope="row"><?php echo esc_html_x('Reply To', 'reply to addresses', 'log-emails'); ?></th>
+			<td><?php echo esc_html($replyto); ?></td>
+		</tr>
+		<?php endif; ?>
+
 		<?php if ($content_type = get_post_meta($post->ID, '_log_emails_log_content-type', true)): ?>
 		<tr>
 			<th scope="row"><?php esc_html_e('Content Type', 'log-emails'); ?></th>

@@ -140,6 +140,7 @@ class LogEmailsPlugin {
 		if (isset($this->args['headers'])) {
 			$cc = array();
 			$bcc = array();
+			$replyto = array();
 			$headers = $this->args['headers'];
 			if (!is_array($headers)) {
 				$headers = explode("\n", str_replace("\r\n", "\n", $headers));
@@ -148,6 +149,7 @@ class LogEmailsPlugin {
 				if ($header) {
 					list($header, $value) = explode(':', $header, 2);
 					switch (strtolower($header)) {
+
 						case 'cc':
 							$cc[] = trim($value);
 							break;
@@ -155,6 +157,11 @@ class LogEmailsPlugin {
 						case 'bcc':
 							$bcc[] = trim($value);
 							break;
+
+						case 'reply-to':
+							$replyto[] = trim($value);
+							break;
+
 					}
 				}
 			}
@@ -164,6 +171,9 @@ class LogEmailsPlugin {
 			}
 			if (!empty($bcc)) {
 				$fields['_log_emails_log_bcc'] = implode(', ', $bcc);
+			}
+			if (!empty($replyto)) {
+				$fields['_log_emails_log_replyto'] = implode(', ', $replyto);
 			}
 		}
 

@@ -2,6 +2,11 @@
 
 ## Changelog
 
+### 1.6.0, soon...
+
+* added: Sender, CC, BCC columns in list of email logs
+* added: record Reply-To addresses and show on detailed log
+
 ### 1.5.0, 2024-07-28
 
 * changed: requires PHP 7.4 minimum (recommend PHP 8.2+)
