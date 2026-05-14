@@ -133,6 +133,19 @@ class LogEmailsPlugin {
 		if ($contentType === 'text/plain' && !empty($alt_message)) {
 			$contentType = 'text/html';
 		}
+		else if (empty($alt_message) && preg_match('#multipart/alternative; boundary="(\w+)"#', $contentType, $matches)) {
+			// check for Gravity Forms multipart emails which combines the plain and HTML parts in the body
+			$boundary = $matches[1];
+			$pattern = sprintf('#--%1$s\s+Content-Type: text/plain;\s+(.*?)\s+--%1$s#s', preg_quote($boundary, '#'));
+			if (preg_match($pattern, $phpmailer->Body, $matches)) {
+				$alt_message = $matches[1];
+			}
+			$pattern = sprintf('#--%1$s\s+Content-Type: text/html;\s+(.*?)\s+--%1$s#s', preg_quote($boundary, '#'));
+			if (preg_match($pattern, $phpmailer->Body, $matches)) {
+				$message = $matches[1];
+			}
+			$contentType = 'text/html';
+		}
 		$fields['_log_emails_log_content-type'] = $contentType;
 
 		// pick up recipients from wp_mail() args

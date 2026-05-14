@@ -6,6 +6,7 @@
 
 * changed: only record the From name as part of the From field when it isn't empty
 * fixed: purge of old logs will run with default 30 days limit if setting has not been saved
+* fixed: log Gravity Forms multipart emails as HTML emails
 * added: Sender, CC, BCC columns in list of email logs
 * added: record Reply-To addresses and show on detailed log
 
