@@ -4,6 +4,8 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
+const LOG_EMAILS_DEFAULT_LIMIT	= 30;
+
 /**
 * plugin management
 */
@@ -262,7 +264,7 @@ class LogEmailsPlugin {
 			array(
 				'option_name'		=> 'log_emails_limit_days',
 				'label_text'		=> __('number of days to keep email logs', 'log-emails'),
-				'default'			=> 30,
+				'default'			=> LOG_EMAILS_DEFAULT_LIMIT,
 				'class'				=> 'small-text',
 			)
 		);
@@ -295,7 +297,7 @@ class LogEmailsPlugin {
 	* execute purge of old logs
 	*/
 	public function purge() {
-		$limit_days = get_option('log_emails_limit_days');
+		$limit_days = get_option('log_emails_limit_days', LOG_EMAILS_DEFAULT_LIMIT);
 		if (empty($limit_days) || !is_numeric($limit_days)) {
 			return;
 		}
