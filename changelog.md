@@ -4,6 +4,7 @@
 
 ### 1.6.0, soon...
 
+* changed: only record the From name as part of the From field when it isn't empty
 * added: Sender, CC, BCC columns in list of email logs
 * added: record Reply-To addresses and show on detailed log
 

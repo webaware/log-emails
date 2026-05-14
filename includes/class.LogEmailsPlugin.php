@@ -118,7 +118,13 @@ class LogEmailsPlugin {
 
 		// collate additional fields into array
 		$fields = array();
-		$fields['_log_emails_log_from'] = sprintf('%s <%s>', $phpmailer->FromName, $phpmailer->From);
+
+		// only record the From name if it isn't empty; otherwise just record the email address
+		$from_name = $phpmailer->FromName;
+		if ($from_name === '""') {
+			$from_name = false;
+		}
+		$fields['_log_emails_log_from'] = $from_name ? sprintf('%s <%s>', $from_name, $phpmailer->From) : $phpmailer->From;
 
 		// detect text/html when content type is text/plain but email has an alternate message (WP e-Commerce, I'm looking at you!)
 		$contentType = $phpmailer->ContentType;
